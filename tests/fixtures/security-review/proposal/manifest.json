@@ -1,0 +1,13 @@
+{
+  "artifacts": [
+    {
+      "path": "proposal.json",
+      "role": "proposal",
+      "sha256": "7a4b523ea6919943f0cec77162c0dad1858aa34edb13e8e900619d2249b24547"
+    }
+  ],
+  "client_id": "synthetic",
+  "project_id": "bridge-test",
+  "revision": "1",
+  "subject_id": "synthetic-proposal"
+}

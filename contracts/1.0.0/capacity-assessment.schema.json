@@ -1,0 +1,419 @@
+{
+  "$id": "urn:starbots:contracts:1.0.0:CapacityAssessment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "CapacityAssessment"
+    },
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "assumptions": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "bottlenecks": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "configuration": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "constraint_results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actual": {
+                "type": [
+                  "string",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "dimension": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "evidence_level": {
+                "enum": [
+                  "measured",
+                  "inventory",
+                  "assumption",
+                  "synthetic",
+                  "unknown"
+                ]
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "mandatory": {
+                "type": "boolean"
+              },
+              "rationale": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "state": {
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "UNKNOWN",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "threshold": {
+                "type": [
+                  "string",
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "dimension",
+              "mandatory",
+              "state",
+              "actual",
+              "threshold",
+              "rationale",
+              "evidence_level"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "critical_paths": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "demand_case": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "estimated_capacity_rps": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_refs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "failure_domains": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "correlated_with": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "independence_evidence": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "path": {
+                        "maxLength": 10000,
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "sha256"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "network": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "power": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "resource_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              }
+            },
+            "required": [
+              "id",
+              "resource_ids",
+              "power",
+              "network",
+              "correlated_with",
+              "independence_evidence"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "headroom_percent": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "limits": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "measured_or_estimated": {
+          "enum": [
+            "measured",
+            "estimated",
+            "unknown"
+          ]
+        },
+        "method": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "recovery_objectives": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "acceptance_condition": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "indicator": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "measurement": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "target": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "window": {
+                "maxLength": 10000,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "indicator",
+              "target",
+              "window",
+              "measurement",
+              "acceptance_condition"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "restoration_test_refs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "scenario_id": {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "type": "string"
+        },
+        "scenario_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "target_load_rps": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_sha256",
+        "demand_case",
+        "configuration",
+        "target_load_rps",
+        "estimated_capacity_rps",
+        "measured_or_estimated",
+        "method",
+        "evidence_refs",
+        "assumptions",
+        "headroom_percent",
+        "bottlenecks",
+        "limits",
+        "critical_paths",
+        "failure_domains",
+        "recovery_objectives",
+        "restoration_test_refs",
+        "constraint_results"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "source_commit": {
+          "pattern": "^(?:[a-f0-9]{40}|UNRELEASED)$",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 10000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "source_commit"
+      ],
+      "type": "object"
+    },
+    "project_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "client_id",
+    "project_id",
+    "created_at",
+    "producer",
+    "payload"
+  ],
+  "title": "CapacityAssessment",
+  "type": "object"
+}

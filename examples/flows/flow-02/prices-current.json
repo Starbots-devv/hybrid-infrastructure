@@ -1,0 +1,176 @@
+{
+  "client_id": "synthetic-hidden-costs",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "prices-current",
+  "kind": "CostSnapshot",
+  "payload": {
+    "accounting_basis": "list",
+    "completeness": "complete",
+    "currency_registry_version": "1.0.0",
+    "exclusions": [
+      {
+        "category": "Tax and FX",
+        "material": false,
+        "reason": "Excluded from the synthetic same-currency example; real comparison requires review"
+      }
+    ],
+    "fx_snapshot_refs": [],
+    "lines": [
+      {
+        "allocation_id": "compute",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "compute",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "compute",
+        "service": "Managed SaaS/API compute",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/current/compute"
+        },
+        "unit": "month",
+        "unit_rate": "220",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "db",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "db",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "db",
+        "service": "Managed database",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/current/db"
+        },
+        "unit": "month",
+        "unit_rate": "100",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "network",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "network",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "network",
+        "service": "Network",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/current/network"
+        },
+        "unit": "month",
+        "unit_rate": "60",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "observability",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "observability",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "observability",
+        "service": "Monitoring and security",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/current/observability"
+        },
+        "unit": "month",
+        "unit_rate": "40",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "operations",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "operations",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "operations",
+        "service": "Operations labor",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/current/operations"
+        },
+        "unit": "month",
+        "unit_rate": "100",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      }
+    ],
+    "observed_at": "2026-10-17T00:00:00Z",
+    "period_definition": {
+      "horizon_months": 36,
+      "kind": "calendar_month",
+      "start_month": "2026-10"
+    },
+    "source_id": "synthetic-synthetic-hidden-costs-current",
+    "valid_until": "2026-11-01T00:00:00Z"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

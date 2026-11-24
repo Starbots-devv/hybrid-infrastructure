@@ -1,0 +1,507 @@
+{
+  "client_id": "synthetic-northstar-parts",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "local-only",
+  "kind": "Scenario",
+  "payload": {
+    "action_groups": [
+      {
+        "actions": [
+          "keep"
+        ],
+        "resource_id": "compute"
+      },
+      {
+        "actions": [
+          "keep"
+        ],
+        "resource_id": "db"
+      },
+      {
+        "actions": [
+          "keep"
+        ],
+        "resource_id": "network"
+      },
+      {
+        "actions": [
+          "keep"
+        ],
+        "resource_id": "observability"
+      },
+      {
+        "actions": [
+          "keep"
+        ],
+        "resource_id": "power"
+      },
+      {
+        "actions": [
+          "keep"
+        ],
+        "resource_id": "operations"
+      }
+    ],
+    "capacity_inputs": {
+      "assumptions": [
+        "Synthetic steady-state slots and two-second service time; no measured benchmark.",
+        "Retry bursts, I/O ceilings and tail latency require separate tests."
+      ],
+      "available_memory_gib": "8",
+      "benchmark_evidence_ref": null,
+      "evidence_level": "synthetic",
+      "max_db_connections": "20",
+      "network_capacity_mbps": "100",
+      "parallel_slots": "4",
+      "required_connections": "10",
+      "required_memory_per_job_gib": "1",
+      "service_time_seconds": "2",
+      "target_network_mbps": "10"
+    },
+    "connection_edges": [
+      {
+        "connectivity_test": "Resolve approved hostname, validate TLS and perform a scoped dry-run transaction; not executed",
+        "cost_line_ids": [
+          "network"
+        ],
+        "destination": "db",
+        "direction": "outbound",
+        "dns": null,
+        "firewall_route": "Outbound only; allow destination service and port after review",
+        "id": "worker-db",
+        "identity": "Dedicated least-privilege workload identity; no shared admin key",
+        "permissions": [
+          "Write only application schema"
+        ],
+        "port": 5432,
+        "protocol": "PostgreSQL over TLS",
+        "required_inputs": [
+          "Approved hostname",
+          "Certificate trust root",
+          "Scoped identity",
+          "Reviewed firewall rule"
+        ],
+        "secret_refs": [
+          "secret://required/workload-identity"
+        ],
+        "source": "compute",
+        "tls": "TLS with verified server certificate; actual hostname and trust chain required",
+        "traffic_gb_month": "10",
+        "trust_boundary": "Cloud service boundary"
+      }
+    ],
+    "constraint_requirements": [
+      {
+        "dimension": "availability",
+        "id": "availability",
+        "mandatory": true,
+        "observation": {
+          "evidence_level": "synthetic",
+          "evidence_refs": [],
+          "value": "98"
+        },
+        "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+        "rule": "gte",
+        "threshold": "99.5"
+      },
+      {
+        "dimension": "rto",
+        "id": "restore",
+        "mandatory": true,
+        "observation": {
+          "evidence_level": "synthetic",
+          "evidence_refs": [],
+          "value": "240"
+        },
+        "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+        "rule": "lte",
+        "threshold": "60"
+      },
+      {
+        "dimension": "rpo",
+        "id": "data-loss",
+        "mandatory": true,
+        "observation": {
+          "evidence_level": "synthetic",
+          "evidence_refs": [],
+          "value": "120"
+        },
+        "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+        "rule": "lte",
+        "threshold": "15"
+      },
+      {
+        "dimension": "staffing",
+        "id": "staffing",
+        "mandatory": true,
+        "observation": {
+          "evidence_level": "synthetic",
+          "evidence_refs": [],
+          "value": "18"
+        },
+        "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+        "rule": "lte",
+        "threshold": "20"
+      },
+      {
+        "dimension": "residency",
+        "id": "eu-residency",
+        "mandatory": true,
+        "observation": {
+          "evidence_level": "synthetic",
+          "evidence_refs": [],
+          "value": "Unspecified"
+        },
+        "rationale": "All data-bearing dependencies must satisfy the mandatory EU boundary",
+        "rule": "includes",
+        "threshold": "EU"
+      }
+    ],
+    "demand_case": "Recoverable asynchronous jobs; managed database stays in cloud; local worker has cloud fallback",
+    "failure_domains": [
+      {
+        "correlated_with": [
+          "site-power-and-network"
+        ],
+        "id": "worker-site",
+        "independence_evidence": null,
+        "network": "Single site uplink; outage test required",
+        "power": "Single synthetic site; no independence proven",
+        "resource_ids": [
+          "compute"
+        ]
+      }
+    ],
+    "implementation_steps": [
+      {
+        "action": "Confirm residency, ownership, current bill and steady-state workload",
+        "artifact": null,
+        "expected_result": "Reviewed inventory and dated price sheet",
+        "id": "inventory",
+        "owner": "Platform engineer",
+        "parameters": [
+          {
+            "name": "Environment",
+            "required": true,
+            "value": "Nonproduction only; actual account, region and names remain required inputs"
+          }
+        ],
+        "prerequisites": [],
+        "required_inputs": [
+          "Approved account and region",
+          "Actual resource names and versions",
+          "Independent reviewer",
+          "Separate execution approval"
+        ],
+        "stop_condition": "Stop if ownership or data boundary is unknown",
+        "validation": "Reconcile every resource and rate against independently obtained evidence"
+      },
+      {
+        "action": "Design scoped identities, secret delivery and outbound-only routes; do not put secrets in files",
+        "artifact": null,
+        "expected_result": "Reviewed identity and network matrix",
+        "id": "identity",
+        "owner": "Platform engineer",
+        "parameters": [
+          {
+            "name": "Environment",
+            "required": true,
+            "value": "Nonproduction only; actual account, region and names remain required inputs"
+          }
+        ],
+        "prerequisites": [
+          "inventory"
+        ],
+        "required_inputs": [
+          "Approved account and region",
+          "Actual resource names and versions",
+          "Independent reviewer",
+          "Separate execution approval"
+        ],
+        "stop_condition": "Stop on broad permissions, public DB route or missing TLS verification",
+        "validation": "Security reviewer verifies least privilege and TLS endpoints"
+      },
+      {
+        "action": "In a separately approved nonproduction sandbox, configure durable jobs, idempotent consumers and managed DB backups",
+        "artifact": null,
+        "expected_result": "Repeatable job processing with duplicate suppression",
+        "id": "sandbox",
+        "owner": "Platform engineer",
+        "parameters": [
+          {
+            "name": "Environment",
+            "required": true,
+            "value": "Nonproduction only; actual account, region and names remain required inputs"
+          },
+          {
+            "name": "Database hostname",
+            "required": true,
+            "value": null
+          },
+          {
+            "name": "Database port",
+            "required": true,
+            "value": "5432"
+          },
+          {
+            "name": "Database TLS mode",
+            "required": true,
+            "value": "verify-full"
+          },
+          {
+            "name": "Queue endpoint",
+            "required": true,
+            "value": null
+          },
+          {
+            "name": "Queue transport",
+            "required": true,
+            "value": "HTTPS on port 443; AWS remains simulated"
+          },
+          {
+            "name": "Queue visibility timeout seconds",
+            "required": true,
+            "value": null
+          },
+          {
+            "name": "Worker parallel slots",
+            "required": true,
+            "value": "4"
+          },
+          {
+            "name": "Database maximum pool connections",
+            "required": true,
+            "value": "10"
+          },
+          {
+            "name": "Idempotency key",
+            "required": true,
+            "value": "job_id; persist before acknowledgment"
+          },
+          {
+            "name": "Acknowledgment order",
+            "required": true,
+            "value": "Commit database transaction, then acknowledge queue message"
+          },
+          {
+            "name": "Retry policy",
+            "required": true,
+            "value": "Bounded retries and dead-letter handling; counts require workload review"
+          },
+          {
+            "name": "Application and provider versions",
+            "required": true,
+            "value": null
+          }
+        ],
+        "prerequisites": [
+          "identity"
+        ],
+        "required_inputs": [
+          "Approved account and region",
+          "Actual resource names and versions",
+          "Independent reviewer",
+          "Separate execution approval",
+          "Measured worst-case job duration for visibility timeout",
+          "Validated backup and retention settings",
+          "Compatible application, database and queue versions"
+        ],
+        "stop_condition": "Stop on lost jobs, duplicate side effects or untested backup",
+        "validation": "Replay synthetic jobs, interrupt consumer before acknowledgment, verify deduplication and retained queue"
+      },
+      {
+        "action": "Run steady and burst load tests and simulate loss of local power/network",
+        "artifact": null,
+        "expected_result": "Measured service rate, queue drain, DB connection ceiling and fallback budget",
+        "id": "capacity",
+        "owner": "Platform engineer",
+        "parameters": [
+          {
+            "name": "Environment",
+            "required": true,
+            "value": "Nonproduction only; actual account, region and names remain required inputs"
+          }
+        ],
+        "prerequisites": [
+          "sandbox"
+        ],
+        "required_inputs": [
+          "Approved account and region",
+          "Actual resource names and versions",
+          "Independent reviewer",
+          "Separate execution approval"
+        ],
+        "stop_condition": "Stop if any mandatory objective fails or remains unmeasured",
+        "validation": "Record throughput, tail latency, queue age, costs and correlation during outage"
+      },
+      {
+        "action": "Rehearse cutover and restore with a consistent backup and old consumers available",
+        "artifact": null,
+        "expected_result": "Proven RTO/RPO and reversible cutover",
+        "id": "restore",
+        "owner": "Platform engineer",
+        "parameters": [
+          {
+            "name": "Environment",
+            "required": true,
+            "value": "Nonproduction only; actual account, region and names remain required inputs"
+          }
+        ],
+        "prerequisites": [
+          "capacity"
+        ],
+        "required_inputs": [
+          "Approved account and region",
+          "Actual resource names and versions",
+          "Independent reviewer",
+          "Separate execution approval"
+        ],
+        "stop_condition": "Stop if data cannot reconcile or writes are not replayable",
+        "validation": "Time restore, compare checksums and replay post-cutover events"
+      },
+      {
+        "action": "Obtain independent security, engineering, finance and customer approval before production",
+        "artifact": null,
+        "expected_result": "Explicit approval bound to final artifact hashes",
+        "id": "approval",
+        "owner": "Customer and independent reviewers",
+        "parameters": [
+          {
+            "name": "Environment",
+            "required": true,
+            "value": "Nonproduction only; actual account, region and names remain required inputs"
+          }
+        ],
+        "prerequisites": [
+          "restore"
+        ],
+        "required_inputs": [
+          "Approved account and region",
+          "Actual resource names and versions",
+          "Independent reviewer",
+          "Separate execution approval"
+        ],
+        "stop_condition": "Stop if any evidence or approval is missing",
+        "validation": "Verify subject identity, freshness and every mandatory control"
+      }
+    ],
+    "input_cost_snapshot_refs": [
+      {
+        "path": "prices-local-only.json",
+        "sha256": "38eddb63969c56825ea09d8be6f9629b5882902ee6d2ffce24fb0b9f35ed9358"
+      }
+    ],
+    "migration_rollback": {
+      "cutover": "Pause consumers, drain in-flight jobs, record watermark, enable one consumer cohort",
+      "data_state": "Managed database remains source of truth; snapshot and event journal before cutover",
+      "irreversible_actions": [],
+      "post_cutover_writes": "Replay idempotent event IDs; never discard newly accepted writes",
+      "rollback_actions": [
+        "Pause new consumers",
+        "Retain queue and audit journal",
+        "Resume old cloud consumers at recorded watermark",
+        "Reconcile writes before reopening"
+      ],
+      "rollback_triggers": [
+        "Objective violation",
+        "Lost or duplicated side effect",
+        "Unreconciled write",
+        "Unexpected operating cost"
+      ],
+      "schema_compatibility": "Use an additive backward-compatible schema; verify both consumer versions before cutover",
+      "window": "Approved maintenance window after successful rehearsal; duration not measured"
+    },
+    "operational_model": {
+      "alerts": [
+        "Queue age and depth",
+        "Consumer errors and retries",
+        "Database connection pool",
+        "Backup age",
+        "Local uplink health"
+      ],
+      "fallback": "No independent fallback is modeled; local power and network are one failure domain.",
+      "maintenance_hours_month": "18",
+      "on_call": "Business-hours response; verify incident coverage",
+      "owner": "Platform engineer"
+    },
+    "raw_measurement_refs": [],
+    "required_capacity_profile_digest": "683b7a55276f3d565e6e57780ed975cd7cd3b1f48cd107eece6f2f355a3746e1",
+    "required_security_profile_digest": "34c34fd940515fd24432a1591b665fdb4780cd447cc69d40a97b6fb7924523bd",
+    "resource_nodes": [
+      {
+        "id": "compute",
+        "owner": "Platform engineer",
+        "provider": "Synthetic architecture model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Local worker and queue",
+        "service": "Local worker and queue",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "db",
+        "owner": "Platform engineer",
+        "provider": "Synthetic architecture model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Local database",
+        "service": "Local database",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "network",
+        "owner": "Platform engineer",
+        "provider": "Synthetic architecture model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Local network",
+        "service": "Local network",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "observability",
+        "owner": "Platform engineer",
+        "provider": "Synthetic architecture model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Monitoring",
+        "service": "Monitoring",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "power",
+        "owner": "Platform engineer",
+        "provider": "Synthetic architecture model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Power",
+        "service": "Power",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "operations",
+        "owner": "Platform engineer",
+        "provider": "Synthetic architecture model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Operations labor",
+        "service": "Operations labor",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      }
+    ],
+    "subject_revision": "synthetic-northstar-parts-synthetic-v1",
+    "trust_boundaries": [
+      "Worker host",
+      "Cloud control plane",
+      "Managed database"
+    ],
+    "type": "optimized"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

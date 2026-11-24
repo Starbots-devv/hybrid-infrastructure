@@ -1,0 +1,125 @@
+{
+  "artifacts": [
+    {
+      "path": "inputs/bundle.json",
+      "role": "input",
+      "sha256": "34b2f3424f04f8200e20634711f469abd90f47f070d0bc2848d30dbd9aa42207"
+    },
+    {
+      "path": "inputs/profile.json",
+      "role": "input",
+      "sha256": "1e5496286ab0f0194ae1d054f98e22cd3efd736d519fe4d31fa4f7b6e0a71bdb"
+    },
+    {
+      "path": "inputs/scenario-current.json",
+      "role": "input",
+      "sha256": "02609f39e6e64426662479ee34fd9b9f25d840c847aa77a443cc43811f9c4e77"
+    },
+    {
+      "path": "inputs/prices-current.json",
+      "role": "input",
+      "sha256": "3566f56de0095fe452adc164caf97576c1a8a61edea52bc8bb982de22a424a96"
+    },
+    {
+      "path": "inputs/finops-current.json",
+      "role": "input",
+      "sha256": "ffdac7d3f11b4243b631bc517aef4a83949a397942d9ef9ef1c8152f21edb8fe"
+    },
+    {
+      "path": "inputs/scenario-hidden-costs.json",
+      "role": "input",
+      "sha256": "bf39bea19f461df9a3b0326bf2baccbc70aaff9c211cc2a3bf8ca999f630a4c3"
+    },
+    {
+      "path": "inputs/prices-hidden-costs.json",
+      "role": "input",
+      "sha256": "a6b41bece9feb3e804bb83ef6a47f65c951f063489dcd63a3cbf63cb76481c83"
+    },
+    {
+      "path": "inputs/finops-hidden-costs.json",
+      "role": "input",
+      "sha256": "da4e54af3dfeac0d078aac9be6fec5e6c5a235c671f0b9f47bfa834dfed69fba"
+    },
+    {
+      "path": "capacity-current.json",
+      "role": "capacity",
+      "sha256": "e18ba39f4f1706737e3536c8deec9f2fc841a3d853ec2dc32a8070700297734b"
+    },
+    {
+      "path": "capacity-hidden-costs.json",
+      "role": "capacity",
+      "sha256": "e61117bda873c3201f5f36dc86a67df2b55b8c75ae64d4a6f88206d843b42493"
+    },
+    {
+      "path": "security-control-profile.json",
+      "role": "security-control-profile",
+      "sha256": "8be5a17844b6eb4677d38724bcdcf85602521c91402acc1c73db7e044c0bcbdd"
+    },
+    {
+      "path": "subject-manifest.json",
+      "role": "subject-manifest",
+      "sha256": "6b713a4e60f3a7d5da646775ca76ff673964a87d35e733e69fc3220ac2307a3c"
+    },
+    {
+      "path": "subject.json",
+      "role": "subject-reference",
+      "sha256": "4cb6648fe5c04d61ec74fbec6fb65071e79ac3f3ab24c11943c07caf8a1c5c62"
+    },
+    {
+      "path": "evaluation.json",
+      "role": "evaluation",
+      "sha256": "2ca99d1796c3286083d8dae8352c212b14271ad0ca5dd3f70abf18ff1697db0d"
+    },
+    {
+      "path": "architecture-current.svg",
+      "role": "dossier",
+      "sha256": "4b0b71b03ca9c72de6da90a9d5490b9188741a0a04ff06799d428b53186ed7e3"
+    },
+    {
+      "path": "architecture-proposed.svg",
+      "role": "dossier",
+      "sha256": "4b0b71b03ca9c72de6da90a9d5490b9188741a0a04ff06799d428b53186ed7e3"
+    },
+    {
+      "path": "dossier.md",
+      "role": "dossier",
+      "sha256": "b57d3872c55644d77092d39407a06c9a00944467359096a574ea473400620193"
+    },
+    {
+      "path": "dossier.html",
+      "role": "dossier",
+      "sha256": "f0f7be4afa330880c5a39cf9bbf004899a6434a2aa81b877fee3d38c0dba6ce6"
+    },
+    {
+      "path": "costs.csv",
+      "role": "dossier",
+      "sha256": "3ef69362a262b82cfe930b5f06ecef9778f0549490f7d695580b8d6152523b21"
+    },
+    {
+      "path": "cashflow.csv",
+      "role": "dossier",
+      "sha256": "d591022ddb925d9b66c9bde13931240d2c86aa1183a31906c9c0f211cabc6ac3"
+    },
+    {
+      "path": "executive-summary.md",
+      "role": "dossier",
+      "sha256": "796495a053b43bdd836b919b2b862868cf0b5f19a97ffc9bd17dae18eccd7fa2"
+    },
+    {
+      "path": "implementation-guide.md",
+      "role": "dossier",
+      "sha256": "c572bbab67936d4ad292b60e9811dfa856f2314cec95296fa278bae2c8cc8bb8"
+    },
+    {
+      "path": "shareable-summary.html",
+      "role": "dossier",
+      "sha256": "565623c5bbb7a747aae3a0154c9027f522ab94cd6baff80847249a5543dbfb9f"
+    },
+    {
+      "path": "redaction-manifest.json",
+      "role": "dossier",
+      "sha256": "e1988b96249b8d6ca08215a9ba67f63132db77609728d8774054b1ce3e92cd6f"
+    }
+  ],
+  "report_id": "evaluation-b23bb55512731e40"
+}

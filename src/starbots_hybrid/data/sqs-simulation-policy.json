@@ -1,0 +1,17 @@
+{
+  "id": "sqs-simulation-1.0.0",
+  "execution_kind": "SIMULATED",
+  "mode": "PLAN",
+  "environment": "sandbox",
+  "account_id": "000000000000",
+  "region": "us-east-1",
+  "queue_prefix": "starbots-sandbox-",
+  "operation": "sqs:CreateQueue",
+  "attributes": {
+    "SqsManagedSseEnabled": "true",
+    "MessageRetentionPeriod": "86400",
+    "VisibilityTimeout": "30"
+  },
+  "max_approval_seconds": 900,
+  "max_security_age_seconds": 86400
+}

@@ -1,0 +1,26 @@
+{
+  "client_id": "synthetic",
+  "created_at": "2026-10-18T21:33:00Z",
+  "id": "subject-synthetic",
+  "kind": "SubjectRef",
+  "payload": {
+    "artifacts": [
+      {
+        "path": "proposal.json",
+        "role": "proposal",
+        "sha256": "7a4b523ea6919943f0cec77162c0dad1858aa34edb13e8e900619d2249b24547"
+      }
+    ],
+    "manifest_path": "manifest.json",
+    "manifest_sha256": "70676c7b5d128dc85d96f80c8e46e867ca4b37e80886c1b574ec4249c79acd29",
+    "revision": "1",
+    "subject_id": "synthetic-proposal"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "bridge-test",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,31 @@
+{
+  "baseline_id": "current",
+  "client_id": "synthetic-stay-managed",
+  "finops": {
+    "current": {
+      "path": "finops-current.json",
+      "sha256": "033d0f76e28a7c527b1760e8387f257ce53024ce463df7a2d26947cd1604c6c3"
+    },
+    "vm": {
+      "path": "finops-vm.json",
+      "sha256": "f0212efbaec157b5b3362d8a7f61d6d7b8e6762b7aa52f7d9a9d41af10ca8f90"
+    }
+  },
+  "profile": {
+    "path": "profile.json",
+    "sha256": "80e3e7b1500ac7948e5f7c4e67dabd79e8d7901a80eea9a20ae4016e9f7e8d59"
+  },
+  "project_id": "synthetic-evaluation",
+  "scenarios": [
+    {
+      "path": "scenario-current.json",
+      "sha256": "8cec2b1f6a43adcb77bc0978a36fa759fd8871d924275ad0f8c8f54acb15cd70"
+    },
+    {
+      "path": "scenario-vm.json",
+      "sha256": "d5c94f6c237a3b11ff7130f0f9397c571d7243bb787347dfe17e49a899b96b46"
+    }
+  ],
+  "schema_version": "1.1.0",
+  "security_assessments": []
+}

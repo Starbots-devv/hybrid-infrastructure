@@ -1,0 +1,39 @@
+{
+  "baseline_id": "current",
+  "client_id": "synthetic-northstar-parts",
+  "finops": {
+    "current": {
+      "path": "finops-current.json",
+      "sha256": "3071b30a0ccac3bfc1c6a68df0df73e4338f4dae0fc02cc5f1d43f2e0a2546d0"
+    },
+    "hybrid": {
+      "path": "finops-hybrid.json",
+      "sha256": "999d7f83e809ea23319cd655285955355f9c05a062848b1751b77aa5b30be5c4"
+    },
+    "local-only": {
+      "path": "finops-local-only.json",
+      "sha256": "e2281c97007efcca23d07932bfd20a3c18141ebed0734c0beea54ad0a398f487"
+    }
+  },
+  "profile": {
+    "path": "profile.json",
+    "sha256": "683b7a55276f3d565e6e57780ed975cd7cd3b1f48cd107eece6f2f355a3746e1"
+  },
+  "project_id": "synthetic-evaluation",
+  "scenarios": [
+    {
+      "path": "scenario-current.json",
+      "sha256": "d5115e3f1e1a67d41ba4484f59f1f02418f7fbf820034bbae323217ca23ca4ee"
+    },
+    {
+      "path": "scenario-hybrid.json",
+      "sha256": "ef3fb9f1fd3984f82d81eb24cfd07c03f25175dc162033bb5cc420c22129e5af"
+    },
+    {
+      "path": "scenario-local-only.json",
+      "sha256": "44434ad823ecd65a04baaf3d1c2627a5dae10743e4a48206dba676fbada53617"
+    }
+  ],
+  "schema_version": "1.1.0",
+  "security_assessments": []
+}

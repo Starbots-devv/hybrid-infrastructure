@@ -1,0 +1,31 @@
+{
+  "baseline_id": "current",
+  "client_id": "synthetic-hidden-costs",
+  "finops": {
+    "current": {
+      "path": "finops-current.json",
+      "sha256": "ffdac7d3f11b4243b631bc517aef4a83949a397942d9ef9ef1c8152f21edb8fe"
+    },
+    "hidden-costs": {
+      "path": "finops-hidden-costs.json",
+      "sha256": "da4e54af3dfeac0d078aac9be6fec5e6c5a235c671f0b9f47bfa834dfed69fba"
+    }
+  },
+  "profile": {
+    "path": "profile.json",
+    "sha256": "1e5496286ab0f0194ae1d054f98e22cd3efd736d519fe4d31fa4f7b6e0a71bdb"
+  },
+  "project_id": "synthetic-evaluation",
+  "scenarios": [
+    {
+      "path": "scenario-current.json",
+      "sha256": "02609f39e6e64426662479ee34fd9b9f25d840c847aa77a443cc43811f9c4e77"
+    },
+    {
+      "path": "scenario-hidden-costs.json",
+      "sha256": "bf39bea19f461df9a3b0326bf2baccbc70aaff9c211cc2a3bf8ca999f630a4c3"
+    }
+  ],
+  "schema_version": "1.1.0",
+  "security_assessments": []
+}

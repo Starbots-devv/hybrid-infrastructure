@@ -1,0 +1,311 @@
+{
+  "$id": "urn:starbots:contracts:1.0.0:ChangePlan",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "ChangePlan"
+    },
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "account_id": {
+          "pattern": "^[0-9]{12}$",
+          "type": "string"
+        },
+        "action_policy_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "actions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "encrypted": {
+                "const": true
+              },
+              "operation": {
+                "const": "CreateQueue"
+              },
+              "queue_name": {
+                "pattern": "^starbots-sandbox-[a-z0-9-]{1,40}$",
+                "type": "string"
+              },
+              "service": {
+                "const": "sqs"
+              }
+            },
+            "required": [
+              "service",
+              "operation",
+              "queue_name",
+              "encrypted"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "backup_rollback": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "baseline_state_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "blast_radius": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "cost_valid_until": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "type": "string"
+        },
+        "currency": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "diff": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "environment": {
+          "const": "sandbox"
+        },
+        "evaluation_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "expected_postconditions": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "expires_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "type": "string"
+        },
+        "incremental_cost": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mode": {
+          "enum": [
+            "PLAN",
+            "ASSISTED"
+          ]
+        },
+        "preconditions": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "query_budget": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "region": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "pattern": "^[A-Za-z0-9_-]{1,64}$",
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "runner_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "runner_version": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "security_assessment_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "security_policy_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "stop_conditions": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "subject_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "artifacts": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "path": {
+                    "maxLength": 10000,
+                    "type": "string"
+                  },
+                  "role": {
+                    "maxLength": 10000,
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "role",
+                  "path",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "maxItems": 1000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "manifest_path": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "manifest_sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "revision": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "subject_id": {
+              "pattern": "^[A-Za-z0-9_-]{1,64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject_id",
+            "revision",
+            "manifest_path",
+            "manifest_sha256",
+            "artifacts"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "subject_ref",
+        "evaluation_digest",
+        "security_assessment_digest",
+        "security_policy_digest",
+        "runner_version",
+        "runner_digest",
+        "action_policy_digest",
+        "mode",
+        "environment",
+        "account_id",
+        "region",
+        "resources",
+        "actions",
+        "preconditions",
+        "baseline_state_digest",
+        "diff",
+        "incremental_cost",
+        "currency",
+        "cost_valid_until",
+        "query_budget",
+        "blast_radius",
+        "backup_rollback",
+        "stop_conditions",
+        "expected_postconditions",
+        "idempotency_key",
+        "expires_at"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "source_commit": {
+          "pattern": "^(?:[a-f0-9]{40}|UNRELEASED)$",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 10000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "source_commit"
+      ],
+      "type": "object"
+    },
+    "project_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "client_id",
+    "project_id",
+    "created_at",
+    "producer",
+    "payload"
+  ],
+  "title": "ChangePlan",
+  "type": "object"
+}

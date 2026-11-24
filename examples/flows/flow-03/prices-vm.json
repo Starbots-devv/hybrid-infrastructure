@@ -1,0 +1,148 @@
+{
+  "client_id": "synthetic-stay-managed",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "prices-vm",
+  "kind": "CostSnapshot",
+  "payload": {
+    "accounting_basis": "list",
+    "completeness": "complete",
+    "currency_registry_version": "1.0.0",
+    "exclusions": [
+      {
+        "category": "Tax and FX",
+        "material": false,
+        "reason": "Excluded from the synthetic same-currency example; real comparison requires review"
+      }
+    ],
+    "fx_snapshot_refs": [],
+    "lines": [
+      {
+        "allocation_id": "compute",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "compute",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "compute",
+        "service": "Self-managed VM",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/vm/compute"
+        },
+        "unit": "month",
+        "unit_rate": "120",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "network",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "network",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "network",
+        "service": "Backup, network, and security",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/vm/network"
+        },
+        "unit": "month",
+        "unit_rate": "60",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "operations",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "operations",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "operations",
+        "service": "VM operations and maintenance",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/vm/operations"
+        },
+        "unit": "month",
+        "unit_rate": "125",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "migration",
+        "assumptions": [
+          "Nominal USD, no FX or inflation; tax UNKNOWN.",
+          "Explicit synthetic full-cost allocation."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "migration",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "one_time",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "migration",
+        "service": "Transition and training",
+        "sku": null,
+        "source": {
+          "label": "Synthetic fixture assumption; no vendor quote",
+          "uri": "synthetic://flows/vm/migration"
+        },
+        "unit": "one_time",
+        "unit_rate": "600",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      }
+    ],
+    "observed_at": "2026-10-17T00:00:00Z",
+    "period_definition": {
+      "horizon_months": 36,
+      "kind": "calendar_month",
+      "start_month": "2026-10"
+    },
+    "source_id": "synthetic-synthetic-stay-managed-vm",
+    "valid_until": "2026-11-01T00:00:00Z"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

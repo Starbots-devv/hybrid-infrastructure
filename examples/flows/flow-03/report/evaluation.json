@@ -1,0 +1,3409 @@
+{
+  "client_id": "synthetic-stay-managed",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "evaluation-ec4a3b34833dc8df",
+  "kind": "EvaluationResult",
+  "payload": {
+    "as_of": "2026-10-17T00:00:00Z",
+    "capacities": [
+      {
+        "assumptions": [
+          "Synthetic steady-state slots and two-second service time; no measured benchmark.",
+          "Retry bursts, I/O ceilings and tail latency require separate tests."
+        ],
+        "bottlenecks": [],
+        "configuration": "Declared parallel slots, memory, database connections and network ceilings",
+        "constraint_results": [
+          {
+            "actual": "4",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-throughput",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "1"
+          },
+          {
+            "actual": "20",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-db-connections",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          },
+          {
+            "actual": "100",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-network",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          }
+        ],
+        "critical_paths": [
+          "worker -> durable queue -> managed database"
+        ],
+        "demand_case": "Managed application already meets modeled objectives; VM alternative transfers backup and patching responsibility",
+        "estimated_capacity_rps": "4",
+        "evidence_refs": [],
+        "failure_domains": [
+          {
+            "correlated_with": [
+              "site-power-and-network"
+            ],
+            "id": "worker-site",
+            "independence_evidence": null,
+            "network": "Single site uplink; outage test required",
+            "power": "Single synthetic site; no independence proven",
+            "resource_ids": [
+              "compute"
+            ]
+          }
+        ],
+        "headroom_percent": "75",
+        "limits": [
+          "No measured throughput, latency percentile, queue-drain or restore test is supplied.",
+          "Correlated power/network failures and cloud fallback capacity need independent tests.",
+          "Single workload, steady arrival rate and equal service times; no users-to-RPS conversion."
+        ],
+        "measured_or_estimated": "estimated",
+        "method": "min(parallel slots, floor(memory / memory per job)) / service time",
+        "recovery_objectives": [
+          {
+            "acceptance_condition": "gte",
+            "id": "availability",
+            "indicator": "availability",
+            "measurement": "Availability percentage; test is pending",
+            "target": "99.5",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "restore",
+            "indicator": "rto",
+            "measurement": "Minutes to restore service; drill is pending",
+            "target": "60",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "data-loss",
+            "indicator": "rpo",
+            "measurement": "Minutes of potentially lost writes; drill is pending",
+            "target": "15",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "staffing",
+            "indicator": "staffing",
+            "measurement": "Maintenance hours per month",
+            "target": "20",
+            "window": "Monthly steady demand; recovery per incident"
+          }
+        ],
+        "restoration_test_refs": [],
+        "scenario_id": "current",
+        "scenario_sha256": "8cec2b1f6a43adcb77bc0978a36fa759fd8871d924275ad0f8c8f54acb15cd70",
+        "target_load_rps": "1"
+      },
+      {
+        "assumptions": [
+          "Synthetic steady-state slots and two-second service time; no measured benchmark.",
+          "Retry bursts, I/O ceilings and tail latency require separate tests."
+        ],
+        "bottlenecks": [],
+        "configuration": "Declared parallel slots, memory, database connections and network ceilings",
+        "constraint_results": [
+          {
+            "actual": "2",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-throughput",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "1"
+          },
+          {
+            "actual": "20",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-db-connections",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          },
+          {
+            "actual": "100",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-network",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          }
+        ],
+        "critical_paths": [
+          "worker -> durable queue -> managed database"
+        ],
+        "demand_case": "Managed application already meets modeled objectives; VM alternative transfers backup and patching responsibility",
+        "estimated_capacity_rps": "2",
+        "evidence_refs": [],
+        "failure_domains": [
+          {
+            "correlated_with": [
+              "site-power-and-network"
+            ],
+            "id": "worker-site",
+            "independence_evidence": null,
+            "network": "Single site uplink; outage test required",
+            "power": "Single synthetic site; no independence proven",
+            "resource_ids": [
+              "compute"
+            ]
+          }
+        ],
+        "headroom_percent": "50",
+        "limits": [
+          "No measured throughput, latency percentile, queue-drain or restore test is supplied.",
+          "Correlated power/network failures and cloud fallback capacity need independent tests.",
+          "Single workload, steady arrival rate and equal service times; no users-to-RPS conversion."
+        ],
+        "measured_or_estimated": "estimated",
+        "method": "min(parallel slots, floor(memory / memory per job)) / service time",
+        "recovery_objectives": [
+          {
+            "acceptance_condition": "gte",
+            "id": "availability",
+            "indicator": "availability",
+            "measurement": "Availability percentage; test is pending",
+            "target": "99.5",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "restore",
+            "indicator": "rto",
+            "measurement": "Minutes to restore service; drill is pending",
+            "target": "60",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "data-loss",
+            "indicator": "rpo",
+            "measurement": "Minutes of potentially lost writes; drill is pending",
+            "target": "15",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "staffing",
+            "indicator": "staffing",
+            "measurement": "Maintenance hours per month",
+            "target": "20",
+            "window": "Monthly steady demand; recovery per incident"
+          }
+        ],
+        "restoration_test_refs": [],
+        "scenario_id": "vm",
+        "scenario_sha256": "d5c94f6c237a3b11ff7130f0f9397c571d7243bb787347dfe17e49a899b96b46",
+        "target_load_rps": "1"
+      }
+    ],
+    "comparable_economics": [
+      {
+        "baseline_id": "current",
+        "break_even_month": 1,
+        "comparable": true,
+        "currency": "USD",
+        "incremental_investment": "0",
+        "monthly_saving": "0",
+        "monthly_series": [
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 1,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 2,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 3,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 4,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 5,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 6,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 7,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 8,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 9,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 10,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 11,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 12,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 13,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 14,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 15,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 16,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 17,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 18,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 19,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 20,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 21,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 22,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 23,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 24,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 25,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 26,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 27,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 28,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 29,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 30,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 31,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 32,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 33,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 34,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 35,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 36,
+            "proposed": "260",
+            "saving": "0"
+          }
+        ],
+        "net_12_months": "0",
+        "net_36_months": "0",
+        "reasons": [],
+        "saving_percent": "0",
+        "scenario_id": "current",
+        "view": "incremental_cash"
+      },
+      {
+        "baseline_id": "current",
+        "break_even_month": 1,
+        "comparable": true,
+        "currency": "USD",
+        "incremental_investment": "0",
+        "monthly_saving": "0",
+        "monthly_series": [
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 1,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 2,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 3,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 4,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 5,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 6,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 7,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 8,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 9,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 10,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 11,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 12,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 13,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 14,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 15,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 16,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 17,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 18,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 19,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 20,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 21,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 22,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 23,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 24,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 25,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 26,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 27,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 28,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 29,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 30,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 31,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 32,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 33,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 34,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 35,
+            "proposed": "260",
+            "saving": "0"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "0",
+            "month": 36,
+            "proposed": "260",
+            "saving": "0"
+          }
+        ],
+        "net_12_months": "0",
+        "net_36_months": "0",
+        "reasons": [],
+        "saving_percent": "0",
+        "scenario_id": "current",
+        "view": "allocated_tco"
+      },
+      {
+        "baseline_id": "current",
+        "break_even_month": null,
+        "comparable": true,
+        "currency": "USD",
+        "incremental_investment": "600",
+        "monthly_saving": "-45",
+        "monthly_series": [
+          {
+            "baseline": "260",
+            "cumulative_net": "-645",
+            "month": 1,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-690",
+            "month": 2,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-735",
+            "month": 3,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-780",
+            "month": 4,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-825",
+            "month": 5,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-870",
+            "month": 6,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-915",
+            "month": 7,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-960",
+            "month": 8,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1005",
+            "month": 9,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1050",
+            "month": 10,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1095",
+            "month": 11,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1140",
+            "month": 12,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1185",
+            "month": 13,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1230",
+            "month": 14,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1275",
+            "month": 15,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1320",
+            "month": 16,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1365",
+            "month": 17,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1410",
+            "month": 18,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1455",
+            "month": 19,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1500",
+            "month": 20,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1545",
+            "month": 21,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1590",
+            "month": 22,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1635",
+            "month": 23,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1680",
+            "month": 24,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1725",
+            "month": 25,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1770",
+            "month": 26,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1815",
+            "month": 27,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1860",
+            "month": 28,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1905",
+            "month": 29,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1950",
+            "month": 30,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1995",
+            "month": 31,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2040",
+            "month": 32,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2085",
+            "month": 33,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2130",
+            "month": 34,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2175",
+            "month": 35,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2220",
+            "month": 36,
+            "proposed": "305",
+            "saving": "-45"
+          }
+        ],
+        "net_12_months": "-1140",
+        "net_36_months": "-2220",
+        "reasons": [
+          "Decimal inexact flag set by division/presentation; declared context preserved"
+        ],
+        "saving_percent": "-17.31",
+        "scenario_id": "vm",
+        "view": "incremental_cash"
+      },
+      {
+        "baseline_id": "current",
+        "break_even_month": null,
+        "comparable": true,
+        "currency": "USD",
+        "incremental_investment": "600",
+        "monthly_saving": "-45",
+        "monthly_series": [
+          {
+            "baseline": "260",
+            "cumulative_net": "-645",
+            "month": 1,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-690",
+            "month": 2,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-735",
+            "month": 3,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-780",
+            "month": 4,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-825",
+            "month": 5,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-870",
+            "month": 6,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-915",
+            "month": 7,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-960",
+            "month": 8,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1005",
+            "month": 9,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1050",
+            "month": 10,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1095",
+            "month": 11,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1140",
+            "month": 12,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1185",
+            "month": 13,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1230",
+            "month": 14,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1275",
+            "month": 15,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1320",
+            "month": 16,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1365",
+            "month": 17,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1410",
+            "month": 18,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1455",
+            "month": 19,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1500",
+            "month": 20,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1545",
+            "month": 21,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1590",
+            "month": 22,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1635",
+            "month": 23,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1680",
+            "month": 24,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1725",
+            "month": 25,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1770",
+            "month": 26,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1815",
+            "month": 27,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1860",
+            "month": 28,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1905",
+            "month": 29,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1950",
+            "month": 30,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-1995",
+            "month": 31,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2040",
+            "month": 32,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2085",
+            "month": 33,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2130",
+            "month": 34,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2175",
+            "month": 35,
+            "proposed": "305",
+            "saving": "-45"
+          },
+          {
+            "baseline": "260",
+            "cumulative_net": "-2220",
+            "month": 36,
+            "proposed": "305",
+            "saving": "-45"
+          }
+        ],
+        "net_12_months": "-1140",
+        "net_36_months": "-2220",
+        "reasons": [
+          "Decimal inexact flag set by division/presentation; declared context preserved"
+        ],
+        "saving_percent": "-17.31",
+        "scenario_id": "vm",
+        "view": "allocated_tco"
+      }
+    ],
+    "costs": [
+      {
+        "accounting_basis": "list",
+        "complete": true,
+        "currency": "USD",
+        "known_monthly_subtotal": "260",
+        "lines": [
+          {
+            "amount": "110",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "compute",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "compute",
+            "service": "Managed application",
+            "source_uri": "synthetic://flows/current/compute",
+            "unit": "month",
+            "unit_rate": "110"
+          },
+          {
+            "amount": "60",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "db",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "db",
+            "service": "Managed data and backup",
+            "source_uri": "synthetic://flows/current/db",
+            "unit": "month",
+            "unit_rate": "60"
+          },
+          {
+            "amount": "30",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "network",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "network",
+            "service": "Network",
+            "source_uri": "synthetic://flows/current/network",
+            "unit": "month",
+            "unit_rate": "30"
+          },
+          {
+            "amount": "20",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "observability",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "observability",
+            "service": "Managed security and monitoring",
+            "source_uri": "synthetic://flows/current/observability",
+            "unit": "month",
+            "unit_rate": "20"
+          },
+          {
+            "amount": "40",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "operations",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "operations",
+            "service": "Operations labor",
+            "source_uri": "synthetic://flows/current/operations",
+            "unit": "month",
+            "unit_rate": "40"
+          }
+        ],
+        "monthly_total": "260",
+        "one_time_total": "0",
+        "rounding_delta": "0",
+        "scenario_id": "current",
+        "stale_line_ids": [],
+        "unknown_line_ids": [],
+        "unrounded_monthly_total": "260",
+        "view": "incremental_cash"
+      },
+      {
+        "accounting_basis": "list",
+        "complete": true,
+        "currency": "USD",
+        "known_monthly_subtotal": "260",
+        "lines": [
+          {
+            "amount": "110",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "compute",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "compute",
+            "service": "Managed application",
+            "source_uri": "synthetic://flows/current/compute",
+            "unit": "month",
+            "unit_rate": "110"
+          },
+          {
+            "amount": "60",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "db",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "db",
+            "service": "Managed data and backup",
+            "source_uri": "synthetic://flows/current/db",
+            "unit": "month",
+            "unit_rate": "60"
+          },
+          {
+            "amount": "30",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "network",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "network",
+            "service": "Network",
+            "source_uri": "synthetic://flows/current/network",
+            "unit": "month",
+            "unit_rate": "30"
+          },
+          {
+            "amount": "20",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "observability",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "observability",
+            "service": "Managed security and monitoring",
+            "source_uri": "synthetic://flows/current/observability",
+            "unit": "month",
+            "unit_rate": "20"
+          },
+          {
+            "amount": "40",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "operations",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "operations",
+            "service": "Operations labor",
+            "source_uri": "synthetic://flows/current/operations",
+            "unit": "month",
+            "unit_rate": "40"
+          }
+        ],
+        "monthly_total": "260",
+        "one_time_total": "0",
+        "rounding_delta": "0",
+        "scenario_id": "current",
+        "stale_line_ids": [],
+        "unknown_line_ids": [],
+        "unrounded_monthly_total": "260",
+        "view": "allocated_tco"
+      },
+      {
+        "accounting_basis": "list",
+        "complete": true,
+        "currency": "USD",
+        "known_monthly_subtotal": "305",
+        "lines": [
+          {
+            "amount": "120",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "compute",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "compute",
+            "service": "Self-managed VM",
+            "source_uri": "synthetic://flows/vm/compute",
+            "unit": "month",
+            "unit_rate": "120"
+          },
+          {
+            "amount": "60",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "network",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "network",
+            "service": "Backup, network, and security",
+            "source_uri": "synthetic://flows/vm/network",
+            "unit": "month",
+            "unit_rate": "60"
+          },
+          {
+            "amount": "125",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "operations",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "operations",
+            "service": "VM operations and maintenance",
+            "source_uri": "synthetic://flows/vm/operations",
+            "unit": "month",
+            "unit_rate": "125"
+          },
+          {
+            "amount": "600",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "migration",
+            "period": "one_time",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "migration",
+            "service": "Transition and training",
+            "source_uri": "synthetic://flows/vm/migration",
+            "unit": "one_time",
+            "unit_rate": "600"
+          }
+        ],
+        "monthly_total": "305",
+        "one_time_total": "600",
+        "rounding_delta": "0",
+        "scenario_id": "vm",
+        "stale_line_ids": [],
+        "unknown_line_ids": [],
+        "unrounded_monthly_total": "305",
+        "view": "incremental_cash"
+      },
+      {
+        "accounting_basis": "list",
+        "complete": true,
+        "currency": "USD",
+        "known_monthly_subtotal": "305",
+        "lines": [
+          {
+            "amount": "120",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "compute",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "compute",
+            "service": "Self-managed VM",
+            "source_uri": "synthetic://flows/vm/compute",
+            "unit": "month",
+            "unit_rate": "120"
+          },
+          {
+            "amount": "60",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "network",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "network",
+            "service": "Backup, network, and security",
+            "source_uri": "synthetic://flows/vm/network",
+            "unit": "month",
+            "unit_rate": "60"
+          },
+          {
+            "amount": "125",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours.",
+              "Month 1 of the hash-bound FinOps schedule; later months appear in the monthly series."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "operations",
+            "period": "monthly",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "operations",
+            "service": "VM operations and maintenance",
+            "source_uri": "synthetic://flows/vm/operations",
+            "unit": "month",
+            "unit_rate": "125"
+          },
+          {
+            "amount": "600",
+            "assumptions": [
+              "Nominal USD, no FX or inflation; tax UNKNOWN.",
+              "Explicit synthetic full-cost allocation.",
+              "Decimal precision=50; ROUND_HALF_UP; inexact=false",
+              "Period: calendar_month starting 2026-10; hourly quantity uses actual calendar days or explicit fixed 730 hours."
+            ],
+            "currency": "USD",
+            "evidence_level": "synthetic",
+            "id": "migration",
+            "period": "one_time",
+            "provider": "Synthetic cloud model",
+            "quantity": "1",
+            "resource_id": "migration",
+            "service": "Transition and training",
+            "source_uri": "synthetic://flows/vm/migration",
+            "unit": "one_time",
+            "unit_rate": "600"
+          }
+        ],
+        "monthly_total": "305",
+        "one_time_total": "600",
+        "rounding_delta": "0",
+        "scenario_id": "vm",
+        "stale_line_ids": [],
+        "unknown_line_ids": [],
+        "unrounded_monthly_total": "305",
+        "view": "allocated_tco"
+      }
+    ],
+    "dossier_sections": [
+      {
+        "id": 1,
+        "paragraphs": [
+          "Maple Service — fictional organization — CONDITIONAL recommendation: current. Savings are ESTIMATED.",
+          "Lowest allocated TCO over the requested horizon among model-compatible, budget-compatible alternatives.",
+          "Mandatory security remains UNKNOWN; no scenario is demonstrated feasible.",
+          "incremental_cash: monthly saving 0 USD; net12 0; net36 0; investment 0; recovery month 1.",
+          "allocated_tco: monthly saving 0 USD; net12 0; net36 0; investment 0; recovery month 1."
+        ],
+        "title": "Executive decision"
+      },
+      {
+        "id": 2,
+        "paragraphs": [
+          "Compare complete 12- and 36-month synthetic costs before changing architecture",
+          "Retain a managed data source and demonstrate recovery independently",
+          "All demo facts and rates are synthetic assumptions; evidence and open questions remain explicit."
+        ],
+        "title": "Context and evidence"
+      },
+      {
+        "id": 3,
+        "paragraphs": [
+          "current: UNDEMONSTRATED. verified-security: UNKNOWN",
+          "vm: UNDEMONSTRATED. verified-security: UNKNOWN"
+        ],
+        "title": "Alternatives and rejects"
+      },
+      {
+        "id": 4,
+        "paragraphs": [
+          "Diagrams show declared nodes and directed edges. They do not prove availability, compatibility or live connectivity.",
+          "Failure domains sharing power or uplink have no demonstrated independence."
+        ],
+        "title": "Current and proposed architecture"
+      },
+      {
+        "id": 5,
+        "paragraphs": [
+          "Each declared resource is listed with owner, quantity and region. A resource without a priced line is explicitly identified; this is an exclusion, not a zero-cost claim."
+        ],
+        "title": "Resource bill"
+      },
+      {
+        "id": 6,
+        "paragraphs": [
+          "Required DNS, identities, secrets, TLS roots and routes remain inputs. No connection test has been executed; missing inputs block implementation."
+        ],
+        "title": "Connection matrix"
+      },
+      {
+        "id": 7,
+        "paragraphs": [
+          "Capacity is a steady-state analytical hypothesis. It predicts neither concurrent users nor latency percentiles.",
+          "Trigger: stop rollout when arrival rate exceeds modeled service capacity, a connection limit is reached, or queue age breaches the approved objective."
+        ],
+        "title": "Capacity and service objectives"
+      },
+      {
+        "id": 8,
+        "paragraphs": [
+          "All views are derived from the canonical cost rows and series. Cash excludes allocated depreciation; TCO includes it.",
+          "Migration/training is one-time investment; already owned hardware has no upfront purchase in this example. Hash-bound monthly FinOps assumptions produce the 36-month series."
+        ],
+        "title": "Economics and recovery"
+      },
+      {
+        "id": 9,
+        "paragraphs": [
+          "No complete, independently verified security assessment is bound to this exact bundle.",
+          "Backup configuration is not proof of restoration. RTO/RPO, retention, encryption, scoped identities and fallback need independent evidence."
+        ],
+        "title": "Security and continuity"
+      },
+      {
+        "id": 10,
+        "paragraphs": [
+          "Steps are a reviewed design procedure requiring actual accounts, hostnames, versions and separate approval. No command here deploys infrastructure.",
+          "Owner, prerequisites, required inputs, expected result, validation and stop conditions apply before each step."
+        ],
+        "title": "Ordered implementation"
+      },
+      {
+        "id": 11,
+        "paragraphs": [
+          "Preserve accepted writes and idempotent event IDs. Reconcile state before reopening traffic; reverting a process alone is insufficient."
+        ],
+        "title": "Migration and rollback"
+      },
+      {
+        "id": 12,
+        "paragraphs": [
+          "The platform engineer reviews queue age, errors, DB connections and backup freshness daily; reconciles costs weekly and reviews patches and restore evidence monthly.",
+          "Alert thresholds and on-call coverage require customer approval. Fallback capacity and its budget are unverified."
+        ],
+        "title": "Operations"
+      },
+      {
+        "id": 13,
+        "paragraphs": [
+          "Synthetic rates and service times are explicit modeling inputs, not vendor quotes or measured benchmarks.",
+          "No deployment, provider lookup, credentials or execution approval is provided.",
+          "FinOps plan overrides are explicit and hash-bound when present; absent a plan, demand and prices remain constant. Tax is pre-tax UNKNOWN.",
+          "One workload and one cost snapshot per scenario, one currency per view.",
+          "Sensitivity is a deterministic single-variable cost threshold, not a probability distribution or market forecast.",
+          "Security and recovery objectives require separate exact-subject verification.",
+          "English dossier text is implemented; locale metadata does not translate imported or generated prose.",
+          "Acceptance requires measured load and outage tests, successful restore within RTO/RPO, dated complete prices, independent exact-subject security review, and customer/engineering/finance approvals.",
+          "This dossier grants no execution authority. Input hashes provide integrity, not authenticity or approval."
+        ],
+        "title": "Evidence, approval and acceptance"
+      }
+    ],
+    "evidence_manifest": [
+      {
+        "path": "bundle.json",
+        "role": "input-bundle",
+        "sha256": "3714fbdc5cfcf28de60a5b92f2e1a1c929d9af2860b5e1e0f99d64786afeeed8"
+      },
+      {
+        "path": "profile.json",
+        "role": "profile",
+        "sha256": "80e3e7b1500ac7948e5f7c4e67dabd79e8d7901a80eea9a20ae4016e9f7e8d59"
+      },
+      {
+        "path": "scenario-current.json",
+        "role": "scenario",
+        "sha256": "8cec2b1f6a43adcb77bc0978a36fa759fd8871d924275ad0f8c8f54acb15cd70"
+      },
+      {
+        "path": "prices-current.json",
+        "role": "prices",
+        "sha256": "62f2fb8489ae63918bf02aa6d3f369770c4825d780e3d6e42f65291e7125c480"
+      },
+      {
+        "path": "finops-current.json",
+        "role": "finops-plan",
+        "sha256": "033d0f76e28a7c527b1760e8387f257ce53024ce463df7a2d26947cd1604c6c3"
+      },
+      {
+        "path": "scenario-vm.json",
+        "role": "scenario",
+        "sha256": "d5c94f6c237a3b11ff7130f0f9397c571d7243bb787347dfe17e49a899b96b46"
+      },
+      {
+        "path": "prices-vm.json",
+        "role": "prices",
+        "sha256": "435da4332af2b3a28b4a65218ff05e72f39b767e9992b5c244f9110c2f68d295"
+      },
+      {
+        "path": "finops-vm.json",
+        "role": "finops-plan",
+        "sha256": "f0212efbaec157b5b3362d8a7f61d6d7b8e6762b7aa52f7d9a9d41af10ca8f90"
+      }
+    ],
+    "execution_eligibility": {
+      "eligible": false,
+      "reasons": [
+        "ANALYZE only; independent evidence and future approval gates are pending."
+      ],
+      "supported_mode": "ANALYZE"
+    },
+    "feasibility": [
+      {
+        "constraints": [
+          {
+            "actual": "99.9",
+            "dimension": "availability",
+            "evidence_level": "synthetic",
+            "id": "availability",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "99.5"
+          },
+          {
+            "actual": "45",
+            "dimension": "rto",
+            "evidence_level": "synthetic",
+            "id": "restore",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "60"
+          },
+          {
+            "actual": "10",
+            "dimension": "rpo",
+            "evidence_level": "synthetic",
+            "id": "data-loss",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "15"
+          },
+          {
+            "actual": "18",
+            "dimension": "staffing",
+            "evidence_level": "synthetic",
+            "id": "staffing",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "20"
+          },
+          {
+            "actual": "EU",
+            "dimension": "residency",
+            "evidence_level": "synthetic",
+            "id": "eu-residency",
+            "mandatory": true,
+            "rationale": "All data-bearing dependencies must satisfy the mandatory EU boundary; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "EU"
+          },
+          {
+            "actual": "4",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-throughput",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "1"
+          },
+          {
+            "actual": "20",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-db-connections",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          },
+          {
+            "actual": "100",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-network",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          },
+          {
+            "actual": null,
+            "dimension": "security",
+            "evidence_level": "unknown",
+            "id": "verified-security",
+            "mandatory": true,
+            "rationale": "No independently verified exact-subject security review is bound to this analysis",
+            "state": "UNKNOWN",
+            "threshold": "Exact-subject verified security coverage"
+          }
+        ],
+        "reasons": [
+          "verified-security: UNKNOWN"
+        ],
+        "scenario_id": "current",
+        "state": "UNDEMONSTRATED"
+      },
+      {
+        "constraints": [
+          {
+            "actual": "99.9",
+            "dimension": "availability",
+            "evidence_level": "synthetic",
+            "id": "availability",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "99.5"
+          },
+          {
+            "actual": "45",
+            "dimension": "rto",
+            "evidence_level": "synthetic",
+            "id": "restore",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "60"
+          },
+          {
+            "actual": "10",
+            "dimension": "rpo",
+            "evidence_level": "synthetic",
+            "id": "data-loss",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "15"
+          },
+          {
+            "actual": "16",
+            "dimension": "staffing",
+            "evidence_level": "synthetic",
+            "id": "staffing",
+            "mandatory": true,
+            "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "20"
+          },
+          {
+            "actual": "EU",
+            "dimension": "residency",
+            "evidence_level": "synthetic",
+            "id": "eu-residency",
+            "mandatory": true,
+            "rationale": "All data-bearing dependencies must satisfy the mandatory EU boundary; declared observation, not independently verified",
+            "state": "PASS",
+            "threshold": "EU"
+          },
+          {
+            "actual": "2",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-throughput",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "1"
+          },
+          {
+            "actual": "20",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-db-connections",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          },
+          {
+            "actual": "100",
+            "dimension": "capacity",
+            "evidence_level": "synthetic",
+            "id": "model-network",
+            "mandatory": true,
+            "rationale": "Analytical synthetic model only; benchmark and load test required",
+            "state": "PASS",
+            "threshold": "10"
+          },
+          {
+            "actual": null,
+            "dimension": "security",
+            "evidence_level": "unknown",
+            "id": "verified-security",
+            "mandatory": true,
+            "rationale": "No independently verified exact-subject security review is bound to this analysis",
+            "state": "UNKNOWN",
+            "threshold": "Exact-subject verified security coverage"
+          }
+        ],
+        "reasons": [
+          "verified-security: UNKNOWN"
+        ],
+        "scenario_id": "vm",
+        "state": "UNDEMONSTRATED"
+      }
+    ],
+    "input_manifest": [
+      {
+        "path": "bundle.json",
+        "role": "input-bundle",
+        "sha256": "3714fbdc5cfcf28de60a5b92f2e1a1c929d9af2860b5e1e0f99d64786afeeed8"
+      },
+      {
+        "path": "profile.json",
+        "role": "profile",
+        "sha256": "80e3e7b1500ac7948e5f7c4e67dabd79e8d7901a80eea9a20ae4016e9f7e8d59"
+      },
+      {
+        "path": "scenario-current.json",
+        "role": "scenario",
+        "sha256": "8cec2b1f6a43adcb77bc0978a36fa759fd8871d924275ad0f8c8f54acb15cd70"
+      },
+      {
+        "path": "prices-current.json",
+        "role": "prices",
+        "sha256": "62f2fb8489ae63918bf02aa6d3f369770c4825d780e3d6e42f65291e7125c480"
+      },
+      {
+        "path": "finops-current.json",
+        "role": "finops-plan",
+        "sha256": "033d0f76e28a7c527b1760e8387f257ce53024ce463df7a2d26947cd1604c6c3"
+      },
+      {
+        "path": "scenario-vm.json",
+        "role": "scenario",
+        "sha256": "d5c94f6c237a3b11ff7130f0f9397c571d7243bb787347dfe17e49a899b96b46"
+      },
+      {
+        "path": "prices-vm.json",
+        "role": "prices",
+        "sha256": "435da4332af2b3a28b4a65218ff05e72f39b767e9992b5c244f9110c2f68d295"
+      },
+      {
+        "path": "finops-vm.json",
+        "role": "finops-plan",
+        "sha256": "f0212efbaec157b5b3362d8a7f61d6d7b8e6762b7aa52f7d9a9d41af10ca8f90"
+      }
+    ],
+    "limitations": [
+      "Synthetic rates and service times are explicit modeling inputs, not vendor quotes or measured benchmarks.",
+      "No deployment, provider lookup, credentials or execution approval is provided.",
+      "FinOps plan overrides are explicit and hash-bound when present; absent a plan, demand and prices remain constant. Tax is pre-tax UNKNOWN.",
+      "One workload and one cost snapshot per scenario, one currency per view.",
+      "Sensitivity is a deterministic single-variable cost threshold, not a probability distribution or market forecast.",
+      "Security and recovery objectives require separate exact-subject verification.",
+      "English dossier text is implemented; locale metadata does not translate imported or generated prose."
+    ],
+    "locale": "en",
+    "missing_security_reasons": [
+      "No complete, independently verified security assessment is bound to this exact bundle."
+    ],
+    "open_questions": [
+      {
+        "affects": [
+          "capacity",
+          "availability"
+        ],
+        "id": "prove-capacity",
+        "owner": "Platform engineer",
+        "question": "Can the declared worker, database and network sustain demand during a site outage?",
+        "required_by": "Before any production change"
+      },
+      {
+        "affects": [
+          "cost",
+          "saving"
+        ],
+        "id": "verify-prices",
+        "owner": "Finance owner",
+        "question": "What are the dated provider quotes, labor costs, taxes and actual egress?",
+        "required_by": "Before commercial approval"
+      },
+      {
+        "affects": [
+          "security"
+        ],
+        "id": "security-review",
+        "owner": "Security reviewer",
+        "question": "Do exact-subject security controls, credentials, retention and recovery pass independent validation?",
+        "required_by": "Before implementation approval"
+      }
+    ],
+    "policy": "offline-demo-1.0.0",
+    "profile": {
+      "client_id": "synthetic-stay-managed",
+      "created_at": "2026-10-17T00:00:00Z",
+      "id": "synthetic-stay-managed-profile",
+      "kind": "WorkloadProfile",
+      "payload": {
+        "commercial": {
+          "commitments": [],
+          "currency": "USD",
+          "horizon_months": 36,
+          "monthly_budget": "900"
+        },
+        "company_name": "Maple Service — fictional organization",
+        "current_system": {
+          "description": "Managed application already meets modeled objectives; VM alternative transfers backup and patching responsibility",
+          "resource_ids": [
+            "compute",
+            "db",
+            "network",
+            "observability",
+            "operations"
+          ]
+        },
+        "data_policy": {
+          "classification": "Synthetic order events; no customer records",
+          "compliance_constraints": [
+            "No regulatory certification is claimed"
+          ],
+          "residency": [
+            "EU"
+          ]
+        },
+        "environments": [
+          "development"
+        ],
+        "evidence_refs": [],
+        "geography": [
+          "EU model boundary"
+        ],
+        "goals": [
+          "Compare complete 12- and 36-month synthetic costs before changing architecture",
+          "Retain a managed data source and demonstrate recovery independently"
+        ],
+        "inventory": [
+          {
+            "id": "compute",
+            "owner": "Platform engineer",
+            "provider": "Synthetic architecture model",
+            "quantity": "1",
+            "region": "EU model boundary",
+            "role": "Managed application",
+            "service": "Managed application",
+            "size": "Explicit capacity assumptions; no vendor SKU"
+          },
+          {
+            "id": "db",
+            "owner": "Platform engineer",
+            "provider": "Synthetic architecture model",
+            "quantity": "1",
+            "region": "EU model boundary",
+            "role": "Managed data and backup",
+            "service": "Managed data and backup",
+            "size": "Explicit capacity assumptions; no vendor SKU"
+          },
+          {
+            "id": "network",
+            "owner": "Platform engineer",
+            "provider": "Synthetic architecture model",
+            "quantity": "1",
+            "region": "EU model boundary",
+            "role": "Network",
+            "service": "Network",
+            "size": "Explicit capacity assumptions; no vendor SKU"
+          },
+          {
+            "id": "observability",
+            "owner": "Platform engineer",
+            "provider": "Synthetic architecture model",
+            "quantity": "1",
+            "region": "EU model boundary",
+            "role": "Managed security and monitoring",
+            "service": "Managed security and monitoring",
+            "size": "Explicit capacity assumptions; no vendor SKU"
+          },
+          {
+            "id": "operations",
+            "owner": "Platform engineer",
+            "provider": "Synthetic architecture model",
+            "quantity": "1",
+            "region": "EU model boundary",
+            "role": "Operations labor",
+            "service": "Operations labor",
+            "size": "Explicit capacity assumptions; no vendor SKU"
+          }
+        ],
+        "new_system": false,
+        "open_questions": [
+          {
+            "affects": [
+              "capacity",
+              "availability"
+            ],
+            "id": "prove-capacity",
+            "owner": "Platform engineer",
+            "question": "Can the declared worker, database and network sustain demand during a site outage?",
+            "required_by": "Before any production change"
+          },
+          {
+            "affects": [
+              "cost",
+              "saving"
+            ],
+            "id": "verify-prices",
+            "owner": "Finance owner",
+            "question": "What are the dated provider quotes, labor costs, taxes and actual egress?",
+            "required_by": "Before commercial approval"
+          },
+          {
+            "affects": [
+              "security"
+            ],
+            "id": "security-review",
+            "owner": "Security reviewer",
+            "question": "Do exact-subject security controls, credentials, retention and recovery pass independent validation?",
+            "required_by": "Before implementation approval"
+          }
+        ],
+        "service_objectives": [
+          {
+            "acceptance_condition": "gte",
+            "id": "availability",
+            "indicator": "availability",
+            "measurement": "Availability percentage; test is pending",
+            "target": "99.5",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "restore",
+            "indicator": "rto",
+            "measurement": "Minutes to restore service; drill is pending",
+            "target": "60",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "data-loss",
+            "indicator": "rpo",
+            "measurement": "Minutes of potentially lost writes; drill is pending",
+            "target": "15",
+            "window": "Monthly steady demand; recovery per incident"
+          },
+          {
+            "acceptance_condition": "lte",
+            "id": "staffing",
+            "indicator": "staffing",
+            "measurement": "Maintenance hours per month",
+            "target": "20",
+            "window": "Monthly steady demand; recovery per incident"
+          }
+        ],
+        "synthetic": true,
+        "team_operations": {
+          "hours_per_month": "20",
+          "incident_response": "Page engineer, pause consumers, retain queue, restore cloud consumers after checks",
+          "on_call": "Business hours; incident escalation requires validation",
+          "owner": "Platform engineer",
+          "skills": [
+            "Python operations",
+            "Networking",
+            "Database backup and restore"
+          ]
+        },
+        "workloads": [
+          {
+            "arrival_rate_per_second": "1",
+            "assumptions": [
+              "One synthetic request or job per second; service time is unmeasured.",
+              "No conversion from users to requests; retry amplification needs a load test."
+            ],
+            "concurrency": "4",
+            "db_connections": "10",
+            "evidence_level": "synthetic",
+            "id": "api-requests",
+            "inference_cost_monthly": "0",
+            "kind": "api",
+            "memory_gib": "8",
+            "queue_depth": "100",
+            "service_time_seconds": "2"
+          }
+        ]
+      },
+      "producer": {
+        "name": "starbots_hybrid",
+        "source_commit": "UNRELEASED",
+        "version": "0.1.0a0"
+      },
+      "project_id": "synthetic-evaluation",
+      "schema_version": "1.0.0"
+    },
+    "recommendation": {
+      "confidence": "low",
+      "confidence_rationale": "Synthetic assumptions, untested restoration, and missing security evidence limit confidence.",
+      "reasons": [
+        "Lowest allocated TCO over the requested horizon among model-compatible, budget-compatible alternatives.",
+        "Mandatory security remains UNKNOWN; no scenario is demonstrated feasible."
+      ],
+      "scenario_id": "current",
+      "status": "CONDITIONAL"
+    },
+    "savings_state": "ESTIMATED",
+    "scenarios": [
+      {
+        "client_id": "synthetic-stay-managed",
+        "created_at": "2026-10-17T00:00:00Z",
+        "id": "current",
+        "kind": "Scenario",
+        "payload": {
+          "action_groups": [
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "compute"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "db"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "network"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "observability"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "operations"
+            }
+          ],
+          "capacity_inputs": {
+            "assumptions": [
+              "Synthetic steady-state slots and two-second service time; no measured benchmark.",
+              "Retry bursts, I/O ceilings and tail latency require separate tests."
+            ],
+            "available_memory_gib": "8",
+            "benchmark_evidence_ref": null,
+            "evidence_level": "synthetic",
+            "max_db_connections": "20",
+            "network_capacity_mbps": "100",
+            "parallel_slots": "8",
+            "required_connections": "10",
+            "required_memory_per_job_gib": "1",
+            "service_time_seconds": "2",
+            "target_network_mbps": "10"
+          },
+          "connection_edges": [
+            {
+              "connectivity_test": "Resolve approved hostname, validate TLS and perform a scoped dry-run transaction; not executed",
+              "cost_line_ids": [
+                "network"
+              ],
+              "destination": "db",
+              "direction": "outbound",
+              "dns": null,
+              "firewall_route": "Outbound only; allow destination service and port after review",
+              "id": "worker-db",
+              "identity": "Dedicated least-privilege workload identity; no shared admin key",
+              "permissions": [
+                "Write only application schema"
+              ],
+              "port": 5432,
+              "protocol": "PostgreSQL over TLS",
+              "required_inputs": [
+                "Approved hostname",
+                "Certificate trust root",
+                "Scoped identity",
+                "Reviewed firewall rule"
+              ],
+              "secret_refs": [
+                "secret://required/workload-identity"
+              ],
+              "source": "compute",
+              "tls": "TLS with verified server certificate; actual hostname and trust chain required",
+              "traffic_gb_month": "10",
+              "trust_boundary": "Cloud service boundary"
+            }
+          ],
+          "constraint_requirements": [
+            {
+              "dimension": "availability",
+              "id": "availability",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "99.9"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "gte",
+              "threshold": "99.5"
+            },
+            {
+              "dimension": "rto",
+              "id": "restore",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "45"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "lte",
+              "threshold": "60"
+            },
+            {
+              "dimension": "rpo",
+              "id": "data-loss",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "10"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "lte",
+              "threshold": "15"
+            },
+            {
+              "dimension": "staffing",
+              "id": "staffing",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "18"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "lte",
+              "threshold": "20"
+            },
+            {
+              "dimension": "residency",
+              "id": "eu-residency",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "EU"
+              },
+              "rationale": "All data-bearing dependencies must satisfy the mandatory EU boundary",
+              "rule": "includes",
+              "threshold": "EU"
+            }
+          ],
+          "demand_case": "Managed application already meets modeled objectives; VM alternative transfers backup and patching responsibility",
+          "failure_domains": [
+            {
+              "correlated_with": [
+                "site-power-and-network"
+              ],
+              "id": "worker-site",
+              "independence_evidence": null,
+              "network": "Single site uplink; outage test required",
+              "power": "Single synthetic site; no independence proven",
+              "resource_ids": [
+                "compute"
+              ]
+            }
+          ],
+          "implementation_steps": [
+            {
+              "action": "Confirm residency, ownership, current bill and steady-state workload",
+              "artifact": null,
+              "expected_result": "Reviewed inventory and dated price sheet",
+              "id": "inventory",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if ownership or data boundary is unknown",
+              "validation": "Reconcile every resource and rate against independently obtained evidence"
+            },
+            {
+              "action": "Design scoped identities, secret delivery and outbound-only routes; do not put secrets in files",
+              "artifact": null,
+              "expected_result": "Reviewed identity and network matrix",
+              "id": "identity",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "inventory"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop on broad permissions, public DB route or missing TLS verification",
+              "validation": "Security reviewer verifies least privilege and TLS endpoints"
+            },
+            {
+              "action": "In a separately approved nonproduction sandbox, configure durable jobs, idempotent consumers and managed DB backups",
+              "artifact": null,
+              "expected_result": "Repeatable job processing with duplicate suppression",
+              "id": "sandbox",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                },
+                {
+                  "name": "Database hostname",
+                  "required": true,
+                  "value": null
+                },
+                {
+                  "name": "Database port",
+                  "required": true,
+                  "value": "5432"
+                },
+                {
+                  "name": "Database TLS mode",
+                  "required": true,
+                  "value": "verify-full"
+                },
+                {
+                  "name": "Queue endpoint",
+                  "required": true,
+                  "value": null
+                },
+                {
+                  "name": "Queue transport",
+                  "required": true,
+                  "value": "HTTPS on port 443; AWS remains simulated"
+                },
+                {
+                  "name": "Queue visibility timeout seconds",
+                  "required": true,
+                  "value": null
+                },
+                {
+                  "name": "Worker parallel slots",
+                  "required": true,
+                  "value": "8"
+                },
+                {
+                  "name": "Database maximum pool connections",
+                  "required": true,
+                  "value": "10"
+                },
+                {
+                  "name": "Idempotency key",
+                  "required": true,
+                  "value": "job_id; persist before acknowledgment"
+                },
+                {
+                  "name": "Acknowledgment order",
+                  "required": true,
+                  "value": "Commit database transaction, then acknowledge queue message"
+                },
+                {
+                  "name": "Retry policy",
+                  "required": true,
+                  "value": "Bounded retries and dead-letter handling; counts require workload review"
+                },
+                {
+                  "name": "Application and provider versions",
+                  "required": true,
+                  "value": null
+                }
+              ],
+              "prerequisites": [
+                "identity"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval",
+                "Measured worst-case job duration for visibility timeout",
+                "Validated backup and retention settings",
+                "Compatible application, database and queue versions"
+              ],
+              "stop_condition": "Stop on lost jobs, duplicate side effects or untested backup",
+              "validation": "Replay synthetic jobs, interrupt consumer before acknowledgment, verify deduplication and retained queue"
+            },
+            {
+              "action": "Run steady and burst load tests and simulate loss of local power/network",
+              "artifact": null,
+              "expected_result": "Measured service rate, queue drain, DB connection ceiling and fallback budget",
+              "id": "capacity",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "sandbox"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if any mandatory objective fails or remains unmeasured",
+              "validation": "Record throughput, tail latency, queue age, costs and correlation during outage"
+            },
+            {
+              "action": "Rehearse cutover and restore with a consistent backup and old consumers available",
+              "artifact": null,
+              "expected_result": "Proven RTO/RPO and reversible cutover",
+              "id": "restore",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "capacity"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if data cannot reconcile or writes are not replayable",
+              "validation": "Time restore, compare checksums and replay post-cutover events"
+            },
+            {
+              "action": "Obtain independent security, engineering, finance and customer approval before production",
+              "artifact": null,
+              "expected_result": "Explicit approval bound to final artifact hashes",
+              "id": "approval",
+              "owner": "Customer and independent reviewers",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "restore"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if any evidence or approval is missing",
+              "validation": "Verify subject identity, freshness and every mandatory control"
+            }
+          ],
+          "input_cost_snapshot_refs": [
+            {
+              "path": "prices-current.json",
+              "sha256": "62f2fb8489ae63918bf02aa6d3f369770c4825d780e3d6e42f65291e7125c480"
+            }
+          ],
+          "migration_rollback": {
+            "cutover": "Pause consumers, drain in-flight jobs, record watermark, enable one consumer cohort",
+            "data_state": "Managed database remains source of truth; snapshot and event journal before cutover",
+            "irreversible_actions": [],
+            "post_cutover_writes": "Replay idempotent event IDs; never discard newly accepted writes",
+            "rollback_actions": [
+              "Pause new consumers",
+              "Retain queue and audit journal",
+              "Resume old cloud consumers at recorded watermark",
+              "Reconcile writes before reopening"
+            ],
+            "rollback_triggers": [
+              "Objective violation",
+              "Lost or duplicated side effect",
+              "Unreconciled write",
+              "Unexpected operating cost"
+            ],
+            "schema_compatibility": "Use an additive backward-compatible schema; verify both consumer versions before cutover",
+            "window": "Approved maintenance window after successful rehearsal; duration not measured"
+          },
+          "operational_model": {
+            "alerts": [
+              "Queue age and depth",
+              "Consumer errors and retries",
+              "Database connection pool",
+              "Backup age",
+              "Local uplink health"
+            ],
+            "fallback": "Retain the current managed service until a separately tested recovery path exists.",
+            "maintenance_hours_month": "18",
+            "on_call": "Business-hours response; verify incident coverage",
+            "owner": "Platform engineer"
+          },
+          "raw_measurement_refs": [],
+          "required_capacity_profile_digest": "80e3e7b1500ac7948e5f7c4e67dabd79e8d7901a80eea9a20ae4016e9f7e8d59",
+          "required_security_profile_digest": "34c34fd940515fd24432a1591b665fdb4780cd447cc69d40a97b6fb7924523bd",
+          "resource_nodes": [
+            {
+              "id": "compute",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Managed application",
+              "service": "Managed application",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "db",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Managed data and backup",
+              "service": "Managed data and backup",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "network",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Network",
+              "service": "Network",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "observability",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Managed security and monitoring",
+              "service": "Managed security and monitoring",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "operations",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Operations labor",
+              "service": "Operations labor",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            }
+          ],
+          "subject_revision": "synthetic-stay-managed-synthetic-v1",
+          "trust_boundaries": [
+            "Worker host",
+            "Cloud control plane",
+            "Managed database"
+          ],
+          "type": "current"
+        },
+        "producer": {
+          "name": "starbots_hybrid",
+          "source_commit": "UNRELEASED",
+          "version": "0.1.0a0"
+        },
+        "project_id": "synthetic-evaluation",
+        "schema_version": "1.0.0"
+      },
+      {
+        "client_id": "synthetic-stay-managed",
+        "created_at": "2026-10-17T00:00:00Z",
+        "id": "vm",
+        "kind": "Scenario",
+        "payload": {
+          "action_groups": [
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "compute"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "network"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "operations"
+            },
+            {
+              "actions": [
+                "keep"
+              ],
+              "resource_id": "migration"
+            }
+          ],
+          "capacity_inputs": {
+            "assumptions": [
+              "Synthetic steady-state slots and two-second service time; no measured benchmark.",
+              "Retry bursts, I/O ceilings and tail latency require separate tests."
+            ],
+            "available_memory_gib": "8",
+            "benchmark_evidence_ref": null,
+            "evidence_level": "synthetic",
+            "max_db_connections": "20",
+            "network_capacity_mbps": "100",
+            "parallel_slots": "4",
+            "required_connections": "10",
+            "required_memory_per_job_gib": "1",
+            "service_time_seconds": "2",
+            "target_network_mbps": "10"
+          },
+          "connection_edges": [
+            {
+              "connectivity_test": "Resolve approved hostname, validate TLS and perform a scoped dry-run transaction; not executed",
+              "cost_line_ids": [
+                "network"
+              ],
+              "destination": "network",
+              "direction": "outbound",
+              "dns": null,
+              "firewall_route": "Outbound only; allow destination service and port after review",
+              "id": "vm-network",
+              "identity": "Dedicated least-privilege workload identity; no shared admin key",
+              "permissions": [
+                "Egress only to approved backup or application endpoint"
+              ],
+              "port": 443,
+              "protocol": "HTTPS",
+              "required_inputs": [
+                "Approved hostname",
+                "Certificate trust root",
+                "Scoped identity",
+                "Reviewed firewall rule"
+              ],
+              "secret_refs": [
+                "secret://required/workload-identity"
+              ],
+              "source": "compute",
+              "tls": "TLS with verified server certificate; actual hostname and trust chain required",
+              "traffic_gb_month": "10",
+              "trust_boundary": "Cloud service boundary"
+            }
+          ],
+          "constraint_requirements": [
+            {
+              "dimension": "availability",
+              "id": "availability",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "99.9"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "gte",
+              "threshold": "99.5"
+            },
+            {
+              "dimension": "rto",
+              "id": "restore",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "45"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "lte",
+              "threshold": "60"
+            },
+            {
+              "dimension": "rpo",
+              "id": "data-loss",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "10"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "lte",
+              "threshold": "15"
+            },
+            {
+              "dimension": "staffing",
+              "id": "staffing",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "16"
+              },
+              "rationale": "Unmeasured design hypothesis; prove by load test, restore drill or operations log",
+              "rule": "lte",
+              "threshold": "20"
+            },
+            {
+              "dimension": "residency",
+              "id": "eu-residency",
+              "mandatory": true,
+              "observation": {
+                "evidence_level": "synthetic",
+                "evidence_refs": [],
+                "value": "EU"
+              },
+              "rationale": "All data-bearing dependencies must satisfy the mandatory EU boundary",
+              "rule": "includes",
+              "threshold": "EU"
+            }
+          ],
+          "demand_case": "Managed application already meets modeled objectives; VM alternative transfers backup and patching responsibility",
+          "failure_domains": [
+            {
+              "correlated_with": [
+                "site-power-and-network"
+              ],
+              "id": "worker-site",
+              "independence_evidence": null,
+              "network": "Single site uplink; outage test required",
+              "power": "Single synthetic site; no independence proven",
+              "resource_ids": [
+                "compute"
+              ]
+            }
+          ],
+          "implementation_steps": [
+            {
+              "action": "Confirm residency, ownership, current bill and steady-state workload",
+              "artifact": null,
+              "expected_result": "Reviewed inventory and dated price sheet",
+              "id": "inventory",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if ownership or data boundary is unknown",
+              "validation": "Reconcile every resource and rate against independently obtained evidence"
+            },
+            {
+              "action": "Design scoped identities, secret delivery and outbound-only routes; do not put secrets in files",
+              "artifact": null,
+              "expected_result": "Reviewed identity and network matrix",
+              "id": "identity",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "inventory"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop on broad permissions, public DB route or missing TLS verification",
+              "validation": "Security reviewer verifies least privilege and TLS endpoints"
+            },
+            {
+              "action": "In a separately approved nonproduction sandbox, configure durable jobs, idempotent consumers and managed DB backups",
+              "artifact": null,
+              "expected_result": "Repeatable job processing with duplicate suppression",
+              "id": "sandbox",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                },
+                {
+                  "name": "Database hostname",
+                  "required": true,
+                  "value": null
+                },
+                {
+                  "name": "Database port",
+                  "required": true,
+                  "value": "5432"
+                },
+                {
+                  "name": "Database TLS mode",
+                  "required": true,
+                  "value": "verify-full"
+                },
+                {
+                  "name": "Queue endpoint",
+                  "required": true,
+                  "value": null
+                },
+                {
+                  "name": "Queue transport",
+                  "required": true,
+                  "value": "HTTPS on port 443; AWS remains simulated"
+                },
+                {
+                  "name": "Queue visibility timeout seconds",
+                  "required": true,
+                  "value": null
+                },
+                {
+                  "name": "Worker parallel slots",
+                  "required": true,
+                  "value": "4"
+                },
+                {
+                  "name": "Database maximum pool connections",
+                  "required": true,
+                  "value": "10"
+                },
+                {
+                  "name": "Idempotency key",
+                  "required": true,
+                  "value": "job_id; persist before acknowledgment"
+                },
+                {
+                  "name": "Acknowledgment order",
+                  "required": true,
+                  "value": "Commit database transaction, then acknowledge queue message"
+                },
+                {
+                  "name": "Retry policy",
+                  "required": true,
+                  "value": "Bounded retries and dead-letter handling; counts require workload review"
+                },
+                {
+                  "name": "Application and provider versions",
+                  "required": true,
+                  "value": null
+                }
+              ],
+              "prerequisites": [
+                "identity"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval",
+                "Measured worst-case job duration for visibility timeout",
+                "Validated backup and retention settings",
+                "Compatible application, database and queue versions",
+                "Named VM patching owner",
+                "Tested backup retention",
+                "Managed feature replacement inventory"
+              ],
+              "stop_condition": "Stop on lost jobs, duplicate side effects or untested backup",
+              "validation": "Replay synthetic jobs, interrupt consumer before acknowledgment, verify deduplication and retained queue"
+            },
+            {
+              "action": "Run steady and burst load tests and simulate loss of local power/network",
+              "artifact": null,
+              "expected_result": "Measured service rate, queue drain, DB connection ceiling and fallback budget",
+              "id": "capacity",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "sandbox"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if any mandatory objective fails or remains unmeasured",
+              "validation": "Record throughput, tail latency, queue age, costs and correlation during outage"
+            },
+            {
+              "action": "Rehearse cutover and restore with a consistent backup and old consumers available",
+              "artifact": null,
+              "expected_result": "Proven RTO/RPO and reversible cutover",
+              "id": "restore",
+              "owner": "Platform engineer",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "capacity"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if data cannot reconcile or writes are not replayable",
+              "validation": "Time restore, compare checksums and replay post-cutover events"
+            },
+            {
+              "action": "Obtain independent security, engineering, finance and customer approval before production",
+              "artifact": null,
+              "expected_result": "Explicit approval bound to final artifact hashes",
+              "id": "approval",
+              "owner": "Customer and independent reviewers",
+              "parameters": [
+                {
+                  "name": "Environment",
+                  "required": true,
+                  "value": "Nonproduction only; actual account, region and names remain required inputs"
+                }
+              ],
+              "prerequisites": [
+                "restore"
+              ],
+              "required_inputs": [
+                "Approved account and region",
+                "Actual resource names and versions",
+                "Independent reviewer",
+                "Separate execution approval"
+              ],
+              "stop_condition": "Stop if any evidence or approval is missing",
+              "validation": "Verify subject identity, freshness and every mandatory control"
+            }
+          ],
+          "input_cost_snapshot_refs": [
+            {
+              "path": "prices-vm.json",
+              "sha256": "435da4332af2b3a28b4a65218ff05e72f39b767e9992b5c244f9110c2f68d295"
+            }
+          ],
+          "migration_rollback": {
+            "cutover": "Use a separately approved maintenance window only after backup, feature parity, and rollback rehearsal.",
+            "data_state": "Managed application remains authoritative until a consistent snapshot, replay boundary, and VM restore test are independently verified.",
+            "irreversible_actions": [],
+            "post_cutover_writes": "Replay idempotent event IDs; never discard newly accepted writes",
+            "rollback_actions": [
+              "Stop VM writes",
+              "Reconcile accepted writes",
+              "Resume the managed service at the reviewed boundary"
+            ],
+            "rollback_triggers": [
+              "Objective violation",
+              "Lost or duplicated side effect",
+              "Unreconciled write",
+              "Unexpected operating cost"
+            ],
+            "schema_compatibility": "Use an additive backward-compatible schema; verify both consumer versions before cutover",
+            "window": "Approved maintenance window after successful rehearsal; duration not measured"
+          },
+          "operational_model": {
+            "alerts": [
+              "Queue age and depth",
+              "Consumer errors and retries",
+              "Database connection pool",
+              "Backup age",
+              "Local uplink health"
+            ],
+            "fallback": "Remain on the managed service until VM backup, patching and support owners are verified.",
+            "maintenance_hours_month": "16",
+            "on_call": "Business-hours response; verify incident coverage",
+            "owner": "Platform engineer"
+          },
+          "raw_measurement_refs": [],
+          "required_capacity_profile_digest": "80e3e7b1500ac7948e5f7c4e67dabd79e8d7901a80eea9a20ae4016e9f7e8d59",
+          "required_security_profile_digest": "34c34fd940515fd24432a1591b665fdb4780cd447cc69d40a97b6fb7924523bd",
+          "resource_nodes": [
+            {
+              "id": "compute",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Self-managed VM",
+              "service": "Self-managed VM",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "network",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Backup, network, and security",
+              "service": "Backup, network, and security",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "operations",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "VM operations and maintenance",
+              "service": "VM operations and maintenance",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            },
+            {
+              "id": "migration",
+              "owner": "Platform engineer",
+              "provider": "Synthetic architecture model",
+              "quantity": "1",
+              "region": "EU model boundary",
+              "role": "Transition and training",
+              "service": "Transition and training",
+              "size": "Explicit capacity assumptions; no vendor SKU"
+            }
+          ],
+          "subject_revision": "synthetic-stay-managed-synthetic-v1",
+          "trust_boundaries": [
+            "Self-managed VM",
+            "Managed backup endpoint"
+          ],
+          "type": "hybrid"
+        },
+        "producer": {
+          "name": "starbots_hybrid",
+          "source_commit": "UNRELEASED",
+          "version": "0.1.0a0"
+        },
+        "project_id": "synthetic-evaluation",
+        "schema_version": "1.0.0"
+      }
+    ],
+    "security_assessment_refs": [],
+    "sensitivity": [
+      {
+        "condition": "If proposal cost decreases by USD 1140 over 12 months with other assumptions fixed.",
+        "effect": "Modeled net loss reaches zero; this is a threshold, not a probability.",
+        "variable": "vm / incremental_cash / 12 months"
+      },
+      {
+        "condition": "If proposal cost decreases by USD 2220 over 36 months with other assumptions fixed.",
+        "effect": "Modeled net loss reaches zero; this is a threshold, not a probability.",
+        "variable": "vm / incremental_cash / 36 months"
+      },
+      {
+        "condition": "If proposal cost decreases by USD 1140 over 12 months with other assumptions fixed.",
+        "effect": "Modeled net loss reaches zero; this is a threshold, not a probability.",
+        "variable": "vm / allocated_tco / 12 months"
+      },
+      {
+        "condition": "If proposal cost decreases by USD 2220 over 36 months with other assumptions fixed.",
+        "effect": "Modeled net loss reaches zero; this is a threshold, not a probability.",
+        "variable": "vm / allocated_tco / 36 months"
+      },
+      {
+        "condition": "Demand exceeds min(slots, memory slots) / service time",
+        "effect": "Queue can grow without bound; capacity validation fails.",
+        "variable": "Arrival rate or service time"
+      }
+    ],
+    "synthetic": true
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

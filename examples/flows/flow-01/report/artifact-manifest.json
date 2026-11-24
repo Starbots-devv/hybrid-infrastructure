@@ -1,0 +1,145 @@
+{
+  "artifacts": [
+    {
+      "path": "inputs/bundle.json",
+      "role": "input",
+      "sha256": "86a3152c2b5df68ebd179c88a47ea0cbac1262041507bb5c765a35d2c9bc349e"
+    },
+    {
+      "path": "inputs/profile.json",
+      "role": "input",
+      "sha256": "683b7a55276f3d565e6e57780ed975cd7cd3b1f48cd107eece6f2f355a3746e1"
+    },
+    {
+      "path": "inputs/scenario-current.json",
+      "role": "input",
+      "sha256": "d5115e3f1e1a67d41ba4484f59f1f02418f7fbf820034bbae323217ca23ca4ee"
+    },
+    {
+      "path": "inputs/prices-current.json",
+      "role": "input",
+      "sha256": "823b20d09d751060ac6d8d6fc72fbeae9e9a7184b8f1c0f0d9b05d850fd63216"
+    },
+    {
+      "path": "inputs/finops-current.json",
+      "role": "input",
+      "sha256": "3071b30a0ccac3bfc1c6a68df0df73e4338f4dae0fc02cc5f1d43f2e0a2546d0"
+    },
+    {
+      "path": "inputs/scenario-hybrid.json",
+      "role": "input",
+      "sha256": "ef3fb9f1fd3984f82d81eb24cfd07c03f25175dc162033bb5cc420c22129e5af"
+    },
+    {
+      "path": "inputs/prices-hybrid.json",
+      "role": "input",
+      "sha256": "738ace94c25738840884e6ebdca1ae44e0d7c6657af8879bb329e5728cddfdfa"
+    },
+    {
+      "path": "inputs/finops-hybrid.json",
+      "role": "input",
+      "sha256": "999d7f83e809ea23319cd655285955355f9c05a062848b1751b77aa5b30be5c4"
+    },
+    {
+      "path": "inputs/scenario-local-only.json",
+      "role": "input",
+      "sha256": "44434ad823ecd65a04baaf3d1c2627a5dae10743e4a48206dba676fbada53617"
+    },
+    {
+      "path": "inputs/prices-local-only.json",
+      "role": "input",
+      "sha256": "38eddb63969c56825ea09d8be6f9629b5882902ee6d2ffce24fb0b9f35ed9358"
+    },
+    {
+      "path": "inputs/finops-local-only.json",
+      "role": "input",
+      "sha256": "e2281c97007efcca23d07932bfd20a3c18141ebed0734c0beea54ad0a398f487"
+    },
+    {
+      "path": "capacity-current.json",
+      "role": "capacity",
+      "sha256": "0b1eba542c4b46156ccf7ff43cfe1b7fed4274a81325882394562bff692f01b8"
+    },
+    {
+      "path": "capacity-hybrid.json",
+      "role": "capacity",
+      "sha256": "d8c495e8effc4bd054d82bd5a089849a86f72037fe2ebb447470adb9fe4a6067"
+    },
+    {
+      "path": "capacity-local-only.json",
+      "role": "capacity",
+      "sha256": "034ceaf5df2f3aa44971bad7463a883c0dc3663973224af4d5aa3f1e0136d17f"
+    },
+    {
+      "path": "security-control-profile.json",
+      "role": "security-control-profile",
+      "sha256": "8be5a17844b6eb4677d38724bcdcf85602521c91402acc1c73db7e044c0bcbdd"
+    },
+    {
+      "path": "subject-manifest.json",
+      "role": "subject-manifest",
+      "sha256": "b8a6cc05b077978cbbaabcf6a065702c6c13f7a8f73e0cef8cac8cfe6ad900f8"
+    },
+    {
+      "path": "subject.json",
+      "role": "subject-reference",
+      "sha256": "3caffb96abd96832c2b948bc6620ccc5ed0f42f9d77a5439bbe1c097fe3f81cc"
+    },
+    {
+      "path": "evaluation.json",
+      "role": "evaluation",
+      "sha256": "1777d5d15c8047ebfff2700f2b6f6ff4d8f4388eba95ceabd3ed4aaa61cc21d4"
+    },
+    {
+      "path": "architecture-current.svg",
+      "role": "dossier",
+      "sha256": "a4cbafcc6cd01ba8e823cb15f60823be28c012fa5b1327c580672ce650c7f4b9"
+    },
+    {
+      "path": "architecture-proposed.svg",
+      "role": "dossier",
+      "sha256": "747c7f77b8903d3f1245e29308a42590d7e16f0240e6a55a0328173053cfe2c1"
+    },
+    {
+      "path": "dossier.md",
+      "role": "dossier",
+      "sha256": "dfcc7c671c3d90355017de7561e941c7e1676abc76dbb795d605ff049b022f5a"
+    },
+    {
+      "path": "dossier.html",
+      "role": "dossier",
+      "sha256": "27a68205a3009caf75f0f809e6296ef308b851c8ca0efb537cdbac6013d2480e"
+    },
+    {
+      "path": "costs.csv",
+      "role": "dossier",
+      "sha256": "bbcc71087e995bb536eb35cd08cb3455b71d91a2d80097de8d9415633f06fb6e"
+    },
+    {
+      "path": "cashflow.csv",
+      "role": "dossier",
+      "sha256": "ef43863f425c63c3d47e03102d35a6547a0698db9c1cf3ea565bcdb7f32ca39d"
+    },
+    {
+      "path": "executive-summary.md",
+      "role": "dossier",
+      "sha256": "054df9363641adea13be7072487febf8f68b8b4e1d15ba1ed99ebba5cadf3c87"
+    },
+    {
+      "path": "implementation-guide.md",
+      "role": "dossier",
+      "sha256": "29b333935ebe94407076bf2a13e91ab0491095312ce40c8cb2fb5c09e853fd49"
+    },
+    {
+      "path": "shareable-summary.html",
+      "role": "dossier",
+      "sha256": "703fcc20052e7f56d9e34ad6842f4ae59f511b8363732d442e4b57a33fe3e200"
+    },
+    {
+      "path": "redaction-manifest.json",
+      "role": "dossier",
+      "sha256": "e1988b96249b8d6ca08215a9ba67f63132db77609728d8774054b1ce3e92cd6f"
+    }
+  ],
+  "report_id": "evaluation-3292d33349617ff4"
+}

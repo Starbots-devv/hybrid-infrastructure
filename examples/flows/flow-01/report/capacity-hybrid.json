@@ -1,0 +1,119 @@
+{
+  "client_id": "synthetic-northstar-parts",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "capacity-0deac0a26c0d846d",
+  "kind": "CapacityAssessment",
+  "payload": {
+    "assumptions": [
+      "Synthetic steady-state slots and two-second service time; no measured benchmark.",
+      "Retry bursts, I/O ceilings and tail latency require separate tests."
+    ],
+    "bottlenecks": [],
+    "configuration": "Declared parallel slots, memory, database connections and network ceilings",
+    "constraint_results": [
+      {
+        "actual": "2",
+        "dimension": "capacity",
+        "evidence_level": "synthetic",
+        "id": "model-throughput",
+        "mandatory": true,
+        "rationale": "Analytical synthetic model only; benchmark and load test required",
+        "state": "PASS",
+        "threshold": "1"
+      },
+      {
+        "actual": "20",
+        "dimension": "capacity",
+        "evidence_level": "synthetic",
+        "id": "model-db-connections",
+        "mandatory": true,
+        "rationale": "Analytical synthetic model only; benchmark and load test required",
+        "state": "PASS",
+        "threshold": "10"
+      },
+      {
+        "actual": "100",
+        "dimension": "capacity",
+        "evidence_level": "synthetic",
+        "id": "model-network",
+        "mandatory": true,
+        "rationale": "Analytical synthetic model only; benchmark and load test required",
+        "state": "PASS",
+        "threshold": "10"
+      }
+    ],
+    "critical_paths": [
+      "worker -> durable queue -> managed database"
+    ],
+    "demand_case": "Recoverable asynchronous jobs; managed database stays in cloud; local worker has cloud fallback",
+    "estimated_capacity_rps": "2",
+    "evidence_refs": [],
+    "failure_domains": [
+      {
+        "correlated_with": [
+          "site-power-and-network"
+        ],
+        "id": "worker-site",
+        "independence_evidence": null,
+        "network": "Single site uplink; outage test required",
+        "power": "Single synthetic site; no independence proven",
+        "resource_ids": [
+          "local-worker"
+        ]
+      }
+    ],
+    "headroom_percent": "50",
+    "limits": [
+      "No measured throughput, latency percentile, queue-drain or restore test is supplied.",
+      "Correlated power/network failures and cloud fallback capacity need independent tests.",
+      "Single workload, steady arrival rate and equal service times; no users-to-RPS conversion."
+    ],
+    "measured_or_estimated": "estimated",
+    "method": "min(parallel slots, floor(memory / memory per job)) / service time",
+    "recovery_objectives": [
+      {
+        "acceptance_condition": "gte",
+        "id": "availability",
+        "indicator": "availability",
+        "measurement": "Availability percentage; test is pending",
+        "target": "99.5",
+        "window": "Monthly steady demand; recovery per incident"
+      },
+      {
+        "acceptance_condition": "lte",
+        "id": "restore",
+        "indicator": "rto",
+        "measurement": "Minutes to restore service; drill is pending",
+        "target": "60",
+        "window": "Monthly steady demand; recovery per incident"
+      },
+      {
+        "acceptance_condition": "lte",
+        "id": "data-loss",
+        "indicator": "rpo",
+        "measurement": "Minutes of potentially lost writes; drill is pending",
+        "target": "15",
+        "window": "Monthly steady demand; recovery per incident"
+      },
+      {
+        "acceptance_condition": "lte",
+        "id": "staffing",
+        "indicator": "staffing",
+        "measurement": "Maintenance hours per month",
+        "target": "20",
+        "window": "Monthly steady demand; recovery per incident"
+      }
+    ],
+    "restoration_test_refs": [],
+    "scenario_id": "hybrid",
+    "scenario_sha256": "ef3fb9f1fd3984f82d81eb24cfd07c03f25175dc162033bb5cc420c22129e5af",
+    "target_load_rps": "1"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,76 @@
+{
+  "client_id": "synthetic-hidden-costs",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "subject-proposal-5732a16ccff106dc9ed74d8627801740",
+  "kind": "SubjectRef",
+  "payload": {
+    "artifacts": [
+      {
+        "path": "inputs/bundle.json",
+        "role": "input",
+        "sha256": "34b2f3424f04f8200e20634711f469abd90f47f070d0bc2848d30dbd9aa42207"
+      },
+      {
+        "path": "inputs/profile.json",
+        "role": "input",
+        "sha256": "1e5496286ab0f0194ae1d054f98e22cd3efd736d519fe4d31fa4f7b6e0a71bdb"
+      },
+      {
+        "path": "inputs/scenario-current.json",
+        "role": "input",
+        "sha256": "02609f39e6e64426662479ee34fd9b9f25d840c847aa77a443cc43811f9c4e77"
+      },
+      {
+        "path": "inputs/prices-current.json",
+        "role": "input",
+        "sha256": "3566f56de0095fe452adc164caf97576c1a8a61edea52bc8bb982de22a424a96"
+      },
+      {
+        "path": "inputs/finops-current.json",
+        "role": "input",
+        "sha256": "ffdac7d3f11b4243b631bc517aef4a83949a397942d9ef9ef1c8152f21edb8fe"
+      },
+      {
+        "path": "inputs/scenario-hidden-costs.json",
+        "role": "input",
+        "sha256": "bf39bea19f461df9a3b0326bf2baccbc70aaff9c211cc2a3bf8ca999f630a4c3"
+      },
+      {
+        "path": "inputs/prices-hidden-costs.json",
+        "role": "input",
+        "sha256": "a6b41bece9feb3e804bb83ef6a47f65c951f063489dcd63a3cbf63cb76481c83"
+      },
+      {
+        "path": "inputs/finops-hidden-costs.json",
+        "role": "input",
+        "sha256": "da4e54af3dfeac0d078aac9be6fec5e6c5a235c671f0b9f47bfa834dfed69fba"
+      },
+      {
+        "path": "capacity-current.json",
+        "role": "capacity",
+        "sha256": "e18ba39f4f1706737e3536c8deec9f2fc841a3d853ec2dc32a8070700297734b"
+      },
+      {
+        "path": "capacity-hidden-costs.json",
+        "role": "capacity",
+        "sha256": "e61117bda873c3201f5f36dc86a67df2b55b8c75ae64d4a6f88206d843b42493"
+      },
+      {
+        "path": "security-control-profile.json",
+        "role": "security-control-profile",
+        "sha256": "8be5a17844b6eb4677d38724bcdcf85602521c91402acc1c73db7e044c0bcbdd"
+      }
+    ],
+    "manifest_path": "subject-manifest.json",
+    "manifest_sha256": "6b713a4e60f3a7d5da646775ca76ff673964a87d35e733e69fc3220ac2307a3c",
+    "revision": "1",
+    "subject_id": "proposal-5732a16ccff106dc9ed74d8627801740"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

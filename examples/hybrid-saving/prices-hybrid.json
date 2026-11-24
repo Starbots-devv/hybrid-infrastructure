@@ -1,0 +1,260 @@
+{
+  "client_id": "synthetic-northstar",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "prices-hybrid",
+  "kind": "CostSnapshot",
+  "payload": {
+    "accounting_basis": "list",
+    "completeness": "complete",
+    "currency_registry_version": "1.0.0",
+    "exclusions": [
+      {
+        "category": "Tax and FX",
+        "material": false,
+        "reason": "Excluded from the synthetic same-currency example; real comparison requires review"
+      }
+    ],
+    "fx_snapshot_refs": [],
+    "lines": [
+      {
+        "allocation_id": "compute",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "compute",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "compute",
+        "service": "Workers and durable queue",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/compute"
+        },
+        "unit": "month",
+        "unit_rate": "100",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "db",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "db",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "db",
+        "service": "Database",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/db"
+        },
+        "unit": "month",
+        "unit_rate": "100",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "network",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "network",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "network",
+        "service": "Network and egress",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/network"
+        },
+        "unit": "month",
+        "unit_rate": "50",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "observability",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "observability",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "observability",
+        "service": "Monitoring and security",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/observability"
+        },
+        "unit": "month",
+        "unit_rate": "40",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "power",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "power",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "power",
+        "service": "Power and connectivity",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/power"
+        },
+        "unit": "month",
+        "unit_rate": "50",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "operations",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "operations",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "operations",
+        "service": "Operations labor",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/operations"
+        },
+        "unit": "month",
+        "unit_rate": "160",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      },
+      {
+        "allocation_id": "hardware",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "hardware",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic owned local site",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "hardware",
+        "service": "Allocated hardware depreciation",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/hardware"
+        },
+        "unit": "month",
+        "unit_rate": "40",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "allocated_tco"
+      },
+      {
+        "allocation_id": "migration",
+        "assumptions": [
+          "Constant monthly input; no tax, promotion or free tier.",
+          "Local hardware is already owned; no upfront purchase is included."
+        ],
+        "currency": "USD",
+        "evidence_level": "synthetic",
+        "evidence_refs": [],
+        "id": "migration",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "one_time",
+        "price_kind": "list",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "resource_id": "migration",
+        "service": "Migration and training",
+        "sku": null,
+        "source": {
+          "label": "Explicit demonstration assumption, not a provider price",
+          "uri": "synthetic://northstar/hybrid/migration"
+        },
+        "unit": "one_time",
+        "unit_rate": "1200",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      }
+    ],
+    "observed_at": "2026-10-17T00:00:00Z",
+    "period_definition": {
+      "horizon_months": 36,
+      "kind": "calendar_month",
+      "start_month": "2026-10"
+    },
+    "source_id": "synthetic-hybrid",
+    "valid_until": "2026-11-01T00:00:00Z"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "worker-modernization",
+  "schema_version": "1.0.0"
+}

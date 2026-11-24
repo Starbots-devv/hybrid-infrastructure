@@ -1,0 +1,25 @@
+{
+  "baseline_id": "current",
+  "client_id": "synthetic-northstar",
+  "profile": {
+    "path": "profile.json",
+    "sha256": "0209b5dab82dc12fed16570a57a36bd171f4c48950a9f5914d70fc2e99400099"
+  },
+  "project_id": "worker-modernization",
+  "scenarios": [
+    {
+      "path": "scenario-current.json",
+      "sha256": "3c58bd62ef14773d389d2b84b4b94f1fb84587b1fe3638fe2f0654c05859e14c"
+    },
+    {
+      "path": "scenario-hybrid.json",
+      "sha256": "6a5cd3f7914b20975c28e39b034da5e9a1c0fb9e1a9de84c6775df133a59f5b4"
+    },
+    {
+      "path": "scenario-local-only.json",
+      "sha256": "b880d33ffc03cdd0c2a8ba501ef513e43ff591ce1430870243d096aefd59cc3b"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "security_assessments": []
+}

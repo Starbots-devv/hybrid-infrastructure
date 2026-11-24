@@ -1,0 +1,3 @@
+# Synthetic security review fixture
+
+A complete review directory produced by Starbots Security Skills (`build_review`) for the miniature proposal under `proposal/`, with a real run of the deterministic agent boundary harness and the five other mandatory checks deliberately missing. The review is valid but BLOCKED; no scanner, database or model execution is represented. Hybrid's verifier checks it without importing the Security package. Frozen time: 2026-10-18T21:33:00Z. The `evaluator/` sources and the `UNRELEASED` producer identify a source-test fixture, not a signed release or an approval. If the control profile changes, regenerate this fixture instead of weakening validation.

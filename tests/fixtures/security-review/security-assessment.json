@@ -1,0 +1,305 @@
+{
+  "client_id": "synthetic",
+  "created_at": "2026-10-18T21:33:00Z",
+  "id": "assessment-01928b80ae064bf60d91c241",
+  "kind": "SecurityAssessment",
+  "payload": {
+    "assessed_at": "2026-10-18T21:33:00Z",
+    "controls": [
+      {
+        "evidence_refs": [
+          "evidence-SB-AUTH"
+        ],
+        "external_refs": [],
+        "id": "SB-AUTH",
+        "mandatory": true,
+        "rationale": "Actual local HTTP authorization and tenant probes; missing, failed or incomplete execution; no assurance",
+        "state": "UNKNOWN"
+      },
+      {
+        "evidence_refs": [
+          "evidence-SB-RLS"
+        ],
+        "external_refs": [],
+        "id": "SB-RLS",
+        "mandatory": true,
+        "rationale": "Actual isolated PostgreSQL USING/WITH CHECK and pooled context probes; missing, failed or incomplete execution; no assurance",
+        "state": "UNKNOWN"
+      },
+      {
+        "evidence_refs": [
+          "evidence-SB-SECRETS"
+        ],
+        "external_refs": [],
+        "id": "SB-SECRETS",
+        "mandatory": true,
+        "rationale": "Pinned Gitleaks with redacted output and complete local scope; missing, failed or incomplete execution; no assurance",
+        "state": "UNKNOWN"
+      },
+      {
+        "evidence_refs": [
+          "evidence-SB-DEPENDENCIES"
+        ],
+        "external_refs": [],
+        "id": "SB-DEPENDENCIES",
+        "mandatory": true,
+        "rationale": "Pinned full-offline OSV with fresh complete ecosystem data; missing, failed or incomplete execution; no assurance",
+        "state": "UNKNOWN"
+      },
+      {
+        "evidence_refs": [
+          "evidence-SB-IAC"
+        ],
+        "external_refs": [],
+        "id": "SB-IAC",
+        "mandatory": true,
+        "rationale": "Pinned Trivy IaC with offline embedded checks; missing, failed or incomplete execution; no assurance",
+        "state": "UNKNOWN"
+      },
+      {
+        "evidence_refs": [
+          "evidence-SB-AGENT-BOUNDARY"
+        ],
+        "external_refs": [],
+        "id": "SB-AGENT-BOUNDARY",
+        "mandatory": true,
+        "rationale": "Deterministic client/tool capability enforcement; no model resistance claim; actual local experiment, only this fixture scope",
+        "state": "PASS"
+      }
+    ],
+    "coverage": {
+      "excluded": [],
+      "missing": [
+        "SB-AUTH",
+        "SB-RLS",
+        "SB-SECRETS",
+        "SB-DEPENDENCIES",
+        "SB-IAC"
+      ],
+      "performed": [
+        "SB-AGENT-BOUNDARY"
+      ]
+    },
+    "evidence_refs": [
+      {
+        "path": "evidence/SB-AUTH.json",
+        "sha256": "4258c85f44d0c733892186fb56dc597e3a6d66a0afcd44617be35f8a5bd3bea8"
+      },
+      {
+        "path": "evidence/SB-RLS.json",
+        "sha256": "6f43e865d5964a8a8c0d2ab47c7a5969ef82e661e53ff5fe33ffd7367eeb0bfd"
+      },
+      {
+        "path": "evidence/SB-SECRETS.json",
+        "sha256": "7cd4ca54fcf97e9bf5c16ceba5756d0b51afba9a85987dd4438b76e5768b0e99"
+      },
+      {
+        "path": "evidence/SB-DEPENDENCIES.json",
+        "sha256": "a10d3e404944a5bc8da1059aa84c8206483920894ce7e0154b1a0f3a8713107e"
+      },
+      {
+        "path": "evidence/SB-IAC.json",
+        "sha256": "02d43d7edbae431caa57ef1a0ed4b9f4d3ad6ceb06d8f0de37661da587844b6b"
+      },
+      {
+        "path": "evidence/SB-AGENT-BOUNDARY.json",
+        "sha256": "bec0d8817cb53e76fb50ff2e4fb96a81502cdb4c96a28e7ed39e9e0b3858a9e6"
+      }
+    ],
+    "expires_at": "2026-10-19T21:33:00Z",
+    "findings": [],
+    "policy_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+    "policy_id": "starbots-local-review",
+    "policy_version": "1.0.0",
+    "readiness": {
+      "reasons": [
+        "api-fixture: tool did not complete successfully",
+        "postgresql-rls: tool did not complete successfully",
+        "gitleaks: tool did not complete successfully",
+        "osv-scanner: tool did not complete successfully",
+        "trivy: tool did not complete successfully",
+        "Required coverage is missing",
+        "SB-AUTH: control does not pass",
+        "SB-RLS: control does not pass",
+        "SB-SECRETS: control does not pass",
+        "SB-DEPENDENCIES: control does not pass",
+        "SB-IAC: control does not pass"
+      ],
+      "state": "BLOCKED"
+    },
+    "scope": "Actual local synthetic fixtures only; no production, certification or execution approval",
+    "subject_ref": {
+      "artifacts": [
+        {
+          "path": "proposal/subject.json",
+          "role": "proposal-subject",
+          "sha256": "7d587dc61f6fa13a74019f8a0677a9ea3c91b884c4f689fbdffe37a76363e3c6"
+        },
+        {
+          "path": "proposal/manifest.json",
+          "role": "proposal-manifest",
+          "sha256": "70676c7b5d128dc85d96f80c8e46e867ca4b37e80886c1b574ec4249c79acd29"
+        },
+        {
+          "path": "proposal/proposal.json",
+          "role": "proposal-artifact",
+          "sha256": "7a4b523ea6919943f0cec77162c0dad1858aa34edb13e8e900619d2249b24547"
+        },
+        {
+          "path": "security-control-profile.json",
+          "role": "security-control-profile",
+          "sha256": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f"
+        },
+        {
+          "path": "evaluator/contracts.py",
+          "role": "evaluator-source",
+          "sha256": "8d8f7bf0a2e0ce0a3240be31c3f02ca156b10049ed8cf0c6cbf68756d1aafa1f"
+        },
+        {
+          "path": "evaluator/assessment.py",
+          "role": "evaluator-source",
+          "sha256": "0d33ac1a5007994eb2d766e26b790bdb13e35231123b33be1207c3a3423f7dc9"
+        },
+        {
+          "path": "observations/SB-AUTH.json",
+          "role": "observation",
+          "sha256": "d3381bc82833c57aedd30dee561052836fdb4191797ef91a84754499ddaeaecc"
+        },
+        {
+          "path": "evidence/SB-AUTH.json",
+          "role": "evidence",
+          "sha256": "4258c85f44d0c733892186fb56dc597e3a6d66a0afcd44617be35f8a5bd3bea8"
+        },
+        {
+          "path": "observations/SB-RLS.json",
+          "role": "observation",
+          "sha256": "325b071708deb6e082750b69fd88ad420e89a0e81e66964ae3d9ab414cf9c064"
+        },
+        {
+          "path": "evidence/SB-RLS.json",
+          "role": "evidence",
+          "sha256": "6f43e865d5964a8a8c0d2ab47c7a5969ef82e661e53ff5fe33ffd7367eeb0bfd"
+        },
+        {
+          "path": "observations/SB-SECRETS.json",
+          "role": "observation",
+          "sha256": "61e96f13e2a689bb5382dfea75505cf38709c03ab35610003cfafab581939294"
+        },
+        {
+          "path": "evidence/SB-SECRETS.json",
+          "role": "evidence",
+          "sha256": "7cd4ca54fcf97e9bf5c16ceba5756d0b51afba9a85987dd4438b76e5768b0e99"
+        },
+        {
+          "path": "observations/SB-DEPENDENCIES.json",
+          "role": "observation",
+          "sha256": "16fe7cc693db18b9fd914db4187debb817953fe51e5aa9f00f6e16df3738ff19"
+        },
+        {
+          "path": "evidence/SB-DEPENDENCIES.json",
+          "role": "evidence",
+          "sha256": "a10d3e404944a5bc8da1059aa84c8206483920894ce7e0154b1a0f3a8713107e"
+        },
+        {
+          "path": "observations/SB-IAC.json",
+          "role": "observation",
+          "sha256": "70287c9ba0afae4691b3e48e423438de396419f9bfa9fb41e3f1267f168987af"
+        },
+        {
+          "path": "evidence/SB-IAC.json",
+          "role": "evidence",
+          "sha256": "02d43d7edbae431caa57ef1a0ed4b9f4d3ad6ceb06d8f0de37661da587844b6b"
+        },
+        {
+          "path": "observations/SB-AGENT-BOUNDARY.json",
+          "role": "observation",
+          "sha256": "6d482e9c08628d12ee700f67db9ffca55e7901ae9bb737ae832e17cc9cd0b55e"
+        },
+        {
+          "path": "evidence/SB-AGENT-BOUNDARY.json",
+          "role": "evidence",
+          "sha256": "bec0d8817cb53e76fb50ff2e4fb96a81502cdb4c96a28e7ed39e9e0b3858a9e6"
+        }
+      ],
+      "manifest_path": "subject-manifest.json",
+      "manifest_sha256": "01928b80ae064bf60d91c241b9bc70571b6569e891c80a3a2092aadd84a5a71e",
+      "revision": "review-1",
+      "subject_id": "security-review-1cff05e461e1cb3b284d26a2"
+    },
+    "tool_runs": [
+      {
+        "advisory_digest": null,
+        "output_ref": {
+          "path": "observations/SB-AUTH.json",
+          "sha256": "d3381bc82833c57aedd30dee561052836fdb4191797ef91a84754499ddaeaecc"
+        },
+        "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+        "status": "not_run",
+        "tool": "api-fixture",
+        "tool_version": "local-fixture-1"
+      },
+      {
+        "advisory_digest": null,
+        "output_ref": {
+          "path": "observations/SB-RLS.json",
+          "sha256": "325b071708deb6e082750b69fd88ad420e89a0e81e66964ae3d9ab414cf9c064"
+        },
+        "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+        "status": "not_run",
+        "tool": "postgresql-rls",
+        "tool_version": "local-fixture-1"
+      },
+      {
+        "advisory_digest": null,
+        "output_ref": {
+          "path": "observations/SB-SECRETS.json",
+          "sha256": "61e96f13e2a689bb5382dfea75505cf38709c03ab35610003cfafab581939294"
+        },
+        "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+        "status": "not_run",
+        "tool": "gitleaks",
+        "tool_version": "local-fixture-1"
+      },
+      {
+        "advisory_digest": null,
+        "output_ref": {
+          "path": "observations/SB-DEPENDENCIES.json",
+          "sha256": "16fe7cc693db18b9fd914db4187debb817953fe51e5aa9f00f6e16df3738ff19"
+        },
+        "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+        "status": "not_run",
+        "tool": "osv-scanner",
+        "tool_version": "local-fixture-1"
+      },
+      {
+        "advisory_digest": null,
+        "output_ref": {
+          "path": "observations/SB-IAC.json",
+          "sha256": "70287c9ba0afae4691b3e48e423438de396419f9bfa9fb41e3f1267f168987af"
+        },
+        "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+        "status": "not_run",
+        "tool": "trivy",
+        "tool_version": "local-fixture-1"
+      },
+      {
+        "advisory_digest": null,
+        "output_ref": {
+          "path": "observations/SB-AGENT-BOUNDARY.json",
+          "sha256": "6d482e9c08628d12ee700f67db9ffca55e7901ae9bb737ae832e17cc9cd0b55e"
+        },
+        "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+        "status": "executed",
+        "tool": "agent-boundary",
+        "tool_version": "local-fixture-1"
+      }
+    ]
+  },
+  "producer": {
+    "name": "starbots_security",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "bridge-test",
+  "schema_version": "1.0.0"
+}

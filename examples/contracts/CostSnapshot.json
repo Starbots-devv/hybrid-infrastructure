@@ -1,0 +1,55 @@
+{
+  "client_id": "fixture-0",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "fixture-0",
+  "kind": "CostSnapshot",
+  "payload": {
+    "accounting_basis": "list",
+    "completeness": "complete",
+    "currency_registry_version": "1.0.0",
+    "exclusions": [],
+    "fx_snapshot_refs": [],
+    "lines": [
+      {
+        "allocation_id": "fixture-0",
+        "assumptions": [],
+        "currency": "USD",
+        "evidence_level": "measured",
+        "evidence_refs": [],
+        "id": "fixture-0",
+        "observed_at": "2026-10-17T00:00:00Z",
+        "period": "monthly",
+        "price_kind": "list",
+        "provider": "Synthetic contract fixture; not observed customer data",
+        "quantity": "1",
+        "region": "Synthetic contract fixture; not observed customer data",
+        "resource_id": "fixture-0",
+        "service": "Synthetic contract fixture; not observed customer data",
+        "sku": "Synthetic contract fixture; not observed customer data",
+        "source": {
+          "label": "Synthetic contract fixture; not observed customer data",
+          "uri": "Synthetic contract fixture; not observed customer data"
+        },
+        "unit": "month",
+        "unit_rate": "1",
+        "valid_until": "2026-11-01T00:00:00Z",
+        "view": "both"
+      }
+    ],
+    "observed_at": "2026-10-17T00:00:00Z",
+    "period_definition": {
+      "horizon_months": 1,
+      "kind": "calendar_month",
+      "start_month": "2026-10"
+    },
+    "source_id": "fixture-0",
+    "valid_until": "2026-11-01T00:00:00Z"
+  },
+  "producer": {
+    "name": "Synthetic contract fixture; not observed customer data",
+    "source_commit": "UNRELEASED",
+    "version": "Synthetic contract fixture; not observed customer data"
+  },
+  "project_id": "fixture-0",
+  "schema_version": "1.0.0"
+}

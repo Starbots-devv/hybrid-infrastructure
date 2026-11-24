@@ -1,0 +1,283 @@
+{
+  "client_id": "fixture-0",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "fixture-0",
+  "kind": "EvaluationResult",
+  "payload": {
+    "as_of": "2026-10-17T00:00:00Z",
+    "capacities": [],
+    "comparable_economics": [],
+    "costs": [],
+    "dossier_sections": [
+      {
+        "id": 1,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 2,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 3,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 4,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 5,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 6,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 7,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 8,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 9,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 10,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 11,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 12,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      },
+      {
+        "id": 13,
+        "paragraphs": [],
+        "title": "Synthetic contract fixture; not observed customer data"
+      }
+    ],
+    "evidence_manifest": [],
+    "execution_eligibility": {
+      "eligible": false,
+      "reasons": [
+        "Synthetic contract fixture; not observed customer data"
+      ],
+      "supported_mode": "ANALYZE"
+    },
+    "feasibility": [],
+    "input_manifest": [
+      {
+        "path": "Synthetic contract fixture; not observed customer data",
+        "role": "Synthetic contract fixture; not observed customer data",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    ],
+    "limitations": [
+      "Synthetic contract fixture; not observed customer data"
+    ],
+    "locale": "en",
+    "missing_security_reasons": [],
+    "open_questions": [],
+    "policy": "offline-demo-1.0.0",
+    "profile": {
+      "client_id": "fixture-0",
+      "created_at": "2026-10-17T00:00:00Z",
+      "id": "fixture-0",
+      "kind": "WorkloadProfile",
+      "payload": {
+        "commercial": {
+          "commitments": [],
+          "currency": "Synthetic contract fixture; not observed customer data",
+          "horizon_months": 1,
+          "monthly_budget": "1"
+        },
+        "company_name": "Synthetic contract fixture; not observed customer data",
+        "current_system": {
+          "description": "Synthetic contract fixture; not observed customer data",
+          "resource_ids": []
+        },
+        "data_policy": {
+          "classification": "Synthetic contract fixture; not observed customer data",
+          "compliance_constraints": [],
+          "residency": []
+        },
+        "environments": [
+          "development"
+        ],
+        "evidence_refs": [],
+        "geography": [
+          "Synthetic contract fixture; not observed customer data"
+        ],
+        "goals": [
+          "Synthetic contract fixture; not observed customer data"
+        ],
+        "inventory": [],
+        "new_system": false,
+        "open_questions": [],
+        "service_objectives": [],
+        "synthetic": true,
+        "team_operations": {
+          "hours_per_month": "1",
+          "incident_response": "Synthetic contract fixture; not observed customer data",
+          "on_call": "Synthetic contract fixture; not observed customer data",
+          "owner": "Synthetic contract fixture; not observed customer data",
+          "skills": []
+        },
+        "workloads": [
+          {
+            "arrival_rate_per_second": "1",
+            "assumptions": [],
+            "concurrency": "1",
+            "db_connections": "1",
+            "evidence_level": "measured",
+            "id": "fixture-0",
+            "inference_cost_monthly": "1",
+            "kind": "api",
+            "memory_gib": "1",
+            "queue_depth": "1",
+            "service_time_seconds": "1"
+          }
+        ]
+      },
+      "producer": {
+        "name": "Synthetic contract fixture; not observed customer data",
+        "source_commit": "UNRELEASED",
+        "version": "Synthetic contract fixture; not observed customer data"
+      },
+      "project_id": "fixture-0",
+      "schema_version": "1.0.0"
+    },
+    "recommendation": {
+      "confidence": "low",
+      "confidence_rationale": "Synthetic contract fixture; not observed customer data",
+      "reasons": [
+        "Synthetic contract fixture; not observed customer data"
+      ],
+      "scenario_id": "fixture-0",
+      "status": "CONDITIONAL"
+    },
+    "savings_state": "ESTIMATED",
+    "scenarios": [
+      {
+        "client_id": "fixture-0",
+        "created_at": "2026-10-17T00:00:00Z",
+        "id": "fixture-0",
+        "kind": "Scenario",
+        "payload": {
+          "action_groups": [],
+          "capacity_inputs": {
+            "assumptions": [],
+            "available_memory_gib": "1",
+            "benchmark_evidence_ref": {
+              "path": "Synthetic contract fixture; not observed customer data",
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "evidence_level": "measured",
+            "max_db_connections": "1",
+            "network_capacity_mbps": "1",
+            "parallel_slots": "1",
+            "required_connections": "1",
+            "required_memory_per_job_gib": "1",
+            "service_time_seconds": "1",
+            "target_network_mbps": "1"
+          },
+          "connection_edges": [],
+          "constraint_requirements": [],
+          "demand_case": "Synthetic contract fixture; not observed customer data",
+          "failure_domains": [],
+          "implementation_steps": [
+            {
+              "action": "Synthetic contract fixture; not observed customer data",
+              "artifact": "Synthetic contract fixture; not observed customer data",
+              "expected_result": "Synthetic contract fixture; not observed customer data",
+              "id": "fixture-0",
+              "owner": "Synthetic contract fixture; not observed customer data",
+              "parameters": [],
+              "prerequisites": [],
+              "required_inputs": [],
+              "stop_condition": "Synthetic contract fixture; not observed customer data",
+              "validation": "Synthetic contract fixture; not observed customer data"
+            }
+          ],
+          "input_cost_snapshot_refs": [
+            {
+              "path": "Synthetic contract fixture; not observed customer data",
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "migration_rollback": {
+            "cutover": "Synthetic contract fixture; not observed customer data",
+            "data_state": "Synthetic contract fixture; not observed customer data",
+            "irreversible_actions": [],
+            "post_cutover_writes": "Synthetic contract fixture; not observed customer data",
+            "rollback_actions": [],
+            "rollback_triggers": [],
+            "schema_compatibility": "Synthetic contract fixture; not observed customer data",
+            "window": "Synthetic contract fixture; not observed customer data"
+          },
+          "operational_model": {
+            "alerts": [],
+            "fallback": "Synthetic contract fixture; not observed customer data",
+            "maintenance_hours_month": "1",
+            "on_call": "Synthetic contract fixture; not observed customer data",
+            "owner": "Synthetic contract fixture; not observed customer data"
+          },
+          "raw_measurement_refs": [],
+          "required_capacity_profile_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "required_security_profile_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "resource_nodes": [
+            {
+              "id": "fixture-0",
+              "owner": "Synthetic contract fixture; not observed customer data",
+              "provider": "Synthetic contract fixture; not observed customer data",
+              "quantity": "1",
+              "region": "Synthetic contract fixture; not observed customer data",
+              "role": "Synthetic contract fixture; not observed customer data",
+              "service": "Synthetic contract fixture; not observed customer data",
+              "size": "Synthetic contract fixture; not observed customer data"
+            }
+          ],
+          "subject_revision": "Synthetic contract fixture; not observed customer data",
+          "trust_boundaries": [],
+          "type": "current"
+        },
+        "producer": {
+          "name": "Synthetic contract fixture; not observed customer data",
+          "source_commit": "UNRELEASED",
+          "version": "Synthetic contract fixture; not observed customer data"
+        },
+        "project_id": "fixture-0",
+        "schema_version": "1.0.0"
+      }
+    ],
+    "security_assessment_refs": [],
+    "sensitivity": [],
+    "synthetic": true
+  },
+  "producer": {
+    "name": "Synthetic contract fixture; not observed customer data",
+    "source_commit": "UNRELEASED",
+    "version": "Synthetic contract fixture; not observed customer data"
+  },
+  "project_id": "fixture-0",
+  "schema_version": "1.0.0"
+}

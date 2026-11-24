@@ -1,0 +1,43 @@
+{
+  "format": "starbots-manual-provider-catalog-1",
+  "authority": "review-prompts-only",
+  "pricing": "UNKNOWN",
+  "availability": "UNKNOWN",
+  "contexts": [
+    {
+      "name": "AWS",
+      "roles": ["compute", "queue", "managed database", "network", "fallback"],
+      "verify": ["region", "quota", "minimum commitment", "data transfer", "identity", "backup", "operations"]
+    },
+    {
+      "name": "Cloudflare",
+      "roles": ["DNS", "CDN", "edge", "tunnel"],
+      "verify": ["runtime limits", "data location", "route", "TLS", "origin dependency"]
+    },
+    {
+      "name": "Hetzner",
+      "roles": ["VM", "dedicated server", "storage"],
+      "verify": ["region", "private and interprovider traffic", "IP", "backup", "operations"]
+    },
+    {
+      "name": "DigitalOcean",
+      "roles": ["VM", "application", "managed database"],
+      "verify": ["region", "plan", "backup", "availability", "connection limits"]
+    },
+    {
+      "name": "Supabase",
+      "roles": ["PostgreSQL", "Auth", "Storage"],
+      "verify": ["region", "RLS roles", "connections", "backup", "transfer", "used features"]
+    },
+    {
+      "name": "Vercel",
+      "roles": ["frontend", "functions"],
+      "verify": ["region", "runtime duration", "quotas", "transfer", "resident worker evidence"]
+    },
+    {
+      "name": "On-premise",
+      "roles": ["recoverable worker", "optional compute"],
+      "verify": ["measured hardware", "energy", "UPS", "ISP", "maintenance", "latency", "budgeted fallback"]
+    }
+  ]
+}

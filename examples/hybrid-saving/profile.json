@@ -1,0 +1,200 @@
+{
+  "client_id": "synthetic-northstar",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "northstar-profile",
+  "kind": "WorkloadProfile",
+  "payload": {
+    "commercial": {
+      "commitments": [],
+      "currency": "USD",
+      "horizon_months": 12,
+      "monthly_budget": "750"
+    },
+    "company_name": "Northstar Parts — fictional company",
+    "current_system": {
+      "description": "Cloud workers consume durable jobs and write a managed database. All financial and performance inputs are synthetic.",
+      "resource_ids": [
+        "compute",
+        "db",
+        "network",
+        "observability",
+        "operations"
+      ]
+    },
+    "data_policy": {
+      "classification": "Synthetic order events; no customer records",
+      "compliance_constraints": [
+        "No regulatory certification is claimed"
+      ],
+      "residency": [
+        "EU"
+      ]
+    },
+    "environments": [
+      "development"
+    ],
+    "evidence_refs": [],
+    "geography": [
+      "EU model boundary"
+    ],
+    "goals": [
+      "Reduce modeled monthly infrastructure cost while retaining a durable cloud control plane",
+      "Keep business data inside the EU model boundary; prove recovery before production"
+    ],
+    "inventory": [
+      {
+        "id": "compute",
+        "owner": "Platform engineer",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Cloud workers and durable queue",
+        "service": "Cloud workers and durable queue",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "db",
+        "owner": "Platform engineer",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Managed database",
+        "service": "Managed database",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "network",
+        "owner": "Platform engineer",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Network and egress",
+        "service": "Network and egress",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "observability",
+        "owner": "Platform engineer",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Monitoring and security",
+        "service": "Monitoring and security",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      },
+      {
+        "id": "operations",
+        "owner": "Platform engineer",
+        "provider": "Synthetic cloud model",
+        "quantity": "1",
+        "region": "EU model boundary",
+        "role": "Operations labor",
+        "service": "Operations labor",
+        "size": "Explicit capacity assumptions; no vendor SKU"
+      }
+    ],
+    "new_system": false,
+    "open_questions": [
+      {
+        "affects": [
+          "capacity",
+          "availability"
+        ],
+        "id": "prove-capacity",
+        "owner": "Platform engineer",
+        "question": "Can the declared worker, database and network sustain demand during a site outage?",
+        "required_by": "Before any production change"
+      },
+      {
+        "affects": [
+          "cost",
+          "saving"
+        ],
+        "id": "verify-prices",
+        "owner": "Finance owner",
+        "question": "What are the dated provider quotes, labor costs, taxes and actual egress?",
+        "required_by": "Before commercial approval"
+      },
+      {
+        "affects": [
+          "security"
+        ],
+        "id": "security-review",
+        "owner": "Security reviewer",
+        "question": "Do exact-subject security controls, credentials, retention and recovery pass independent validation?",
+        "required_by": "Before implementation approval"
+      }
+    ],
+    "service_objectives": [
+      {
+        "acceptance_condition": "gte",
+        "id": "availability",
+        "indicator": "availability",
+        "measurement": "Availability percentage; test is pending",
+        "target": "99.5",
+        "window": "Monthly steady demand; recovery per incident"
+      },
+      {
+        "acceptance_condition": "lte",
+        "id": "restore",
+        "indicator": "rto",
+        "measurement": "Minutes to restore service; drill is pending",
+        "target": "60",
+        "window": "Monthly steady demand; recovery per incident"
+      },
+      {
+        "acceptance_condition": "lte",
+        "id": "data-loss",
+        "indicator": "rpo",
+        "measurement": "Minutes of potentially lost writes; drill is pending",
+        "target": "15",
+        "window": "Monthly steady demand; recovery per incident"
+      },
+      {
+        "acceptance_condition": "lte",
+        "id": "staffing",
+        "indicator": "staffing",
+        "measurement": "Maintenance hours per month",
+        "target": "20",
+        "window": "Monthly steady demand; recovery per incident"
+      }
+    ],
+    "synthetic": true,
+    "team_operations": {
+      "hours_per_month": "20",
+      "incident_response": "Page engineer, pause consumers, retain queue, restore cloud consumers after checks",
+      "on_call": "Business hours; incident escalation requires validation",
+      "owner": "Platform engineer",
+      "skills": [
+        "Python operations",
+        "Networking",
+        "Database backup and restore"
+      ]
+    },
+    "workloads": [
+      {
+        "arrival_rate_per_second": "1",
+        "assumptions": [
+          "One job per second, constant demand; two seconds per job is an unmeasured scenario assumption.",
+          "No conversion from users to requests."
+        ],
+        "concurrency": "4",
+        "db_connections": "10",
+        "evidence_level": "synthetic",
+        "id": "order-jobs",
+        "inference_cost_monthly": "0",
+        "kind": "worker",
+        "memory_gib": "8",
+        "queue_depth": "100",
+        "service_time_seconds": "2"
+      }
+    ]
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "worker-modernization",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,29 @@
+{
+  "client_id": "synthetic",
+  "created_at": "2026-10-18T21:33:00Z",
+  "id": "evidence-SB-AGENT-BOUNDARY",
+  "kind": "Evidence",
+  "payload": {
+    "artifact_path": "observations/SB-AGENT-BOUNDARY.json",
+    "artifact_sha256": "6d482e9c08628d12ee700f67db9ffca55e7901ae9bb737ae832e17cc9cd0b55e",
+    "authorized_scope_id": "bridge-test",
+    "classification": "synthetic",
+    "collector": "agent-boundary",
+    "evidence_level": "measured",
+    "evidence_type": "Executed local synthetic fixture observation",
+    "observed_at": "2026-10-18T21:33:00Z",
+    "redaction_status": "synthetic",
+    "rules_digest": "f8de26fd383d0c302cb58942c99b40d158213424eff8e3cbc127f3526f19e59f",
+    "source": "tool",
+    "source_uri": "local://review/observations/SB-AGENT-BOUNDARY",
+    "tool_version": "local-fixture-1",
+    "valid_until": "2026-10-19T21:33:00Z"
+  },
+  "producer": {
+    "name": "starbots_security",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "bridge-test",
+  "schema_version": "1.0.0"
+}

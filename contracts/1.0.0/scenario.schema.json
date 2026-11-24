@@ -1,0 +1,949 @@
+{
+  "$id": "urn:starbots:contracts:1.0.0:Scenario",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "Scenario"
+    },
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "action_groups": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actions": {
+                "items": {
+                  "enum": [
+                    "keep",
+                    "stop",
+                    "downsize",
+                    "reserve",
+                    "replace"
+                  ]
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "resource_id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "resource_id",
+              "actions"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "capacity_inputs": {
+          "additionalProperties": false,
+          "properties": {
+            "assumptions": {
+              "items": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "available_memory_gib": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "benchmark_evidence_ref": {
+              "anyOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "maxLength": 10000,
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "evidence_level": {
+              "enum": [
+                "measured",
+                "inventory",
+                "assumption",
+                "synthetic",
+                "unknown"
+              ]
+            },
+            "max_db_connections": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "network_capacity_mbps": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "parallel_slots": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "required_connections": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "required_memory_per_job_gib": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "service_time_seconds": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "target_network_mbps": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "service_time_seconds",
+            "parallel_slots",
+            "required_memory_per_job_gib",
+            "available_memory_gib",
+            "max_db_connections",
+            "required_connections",
+            "network_capacity_mbps",
+            "target_network_mbps",
+            "benchmark_evidence_ref",
+            "evidence_level",
+            "assumptions"
+          ],
+          "type": "object"
+        },
+        "connection_edges": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "connectivity_test": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "cost_line_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "destination": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "direction": {
+                "enum": [
+                  "outbound",
+                  "bidirectional"
+                ]
+              },
+              "dns": {
+                "anyOf": [
+                  {
+                    "maxLength": 10000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "firewall_route": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "identity": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "permissions": {
+                "items": {
+                  "maxLength": 10000,
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "port": {
+                "maximum": 65535,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "protocol": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "required_inputs": {
+                "items": {
+                  "maxLength": 10000,
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "secret_refs": {
+                "items": {
+                  "maxLength": 10000,
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "source": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "tls": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "traffic_gb_month": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "trust_boundary": {
+                "maxLength": 10000,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "source",
+              "destination",
+              "direction",
+              "protocol",
+              "port",
+              "dns",
+              "tls",
+              "identity",
+              "permissions",
+              "firewall_route",
+              "secret_refs",
+              "traffic_gb_month",
+              "cost_line_ids",
+              "connectivity_test",
+              "trust_boundary",
+              "required_inputs"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "constraint_requirements": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "dimension": {
+                "enum": [
+                  "security",
+                  "residency",
+                  "latency",
+                  "availability",
+                  "rto",
+                  "rpo",
+                  "capacity",
+                  "staffing"
+                ]
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "mandatory": {
+                "type": "boolean"
+              },
+              "observation": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_level": {
+                    "enum": [
+                      "measured",
+                      "inventory",
+                      "assumption",
+                      "synthetic",
+                      "unknown"
+                    ]
+                  },
+                  "evidence_refs": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "maxLength": 10000,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 1000,
+                    "minItems": 0,
+                    "type": "array"
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "value",
+                  "evidence_level",
+                  "evidence_refs"
+                ],
+                "type": "object"
+              },
+              "rationale": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "rule": {
+                "enum": [
+                  "equals",
+                  "includes",
+                  "lte",
+                  "gte"
+                ]
+              },
+              "threshold": {
+                "type": [
+                  "string",
+                  "boolean"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "dimension",
+              "mandatory",
+              "rule",
+              "threshold",
+              "observation",
+              "rationale"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "demand_case": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "failure_domains": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "correlated_with": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "independence_evidence": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "path": {
+                        "maxLength": 10000,
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "sha256"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "network": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "power": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "resource_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              }
+            },
+            "required": [
+              "id",
+              "resource_ids",
+              "power",
+              "network",
+              "correlated_with",
+              "independence_evidence"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "implementation_steps": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "artifact": {
+                "anyOf": [
+                  {
+                    "maxLength": 10000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "expected_result": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "owner": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "parameters": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "maxLength": 10000,
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "maxLength": 10000,
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value",
+                    "required"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "prerequisites": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "required_inputs": {
+                "items": {
+                  "maxLength": 10000,
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "stop_condition": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "validation": {
+                "maxLength": 10000,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "owner",
+              "prerequisites",
+              "action",
+              "artifact",
+              "parameters",
+              "expected_result",
+              "validation",
+              "stop_condition",
+              "required_inputs"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "input_cost_snapshot_refs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "migration_rollback": {
+          "additionalProperties": false,
+          "properties": {
+            "cutover": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "data_state": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "irreversible_actions": {
+              "items": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "post_cutover_writes": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "rollback_actions": {
+              "items": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "rollback_triggers": {
+              "items": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "schema_compatibility": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "window": {
+              "maxLength": 10000,
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_state",
+            "cutover",
+            "window",
+            "rollback_triggers",
+            "rollback_actions",
+            "post_cutover_writes",
+            "schema_compatibility",
+            "irreversible_actions"
+          ],
+          "type": "object"
+        },
+        "operational_model": {
+          "additionalProperties": false,
+          "properties": {
+            "alerts": {
+              "items": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 0,
+              "type": "array"
+            },
+            "fallback": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "maintenance_hours_month": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "on_call": {
+              "maxLength": 10000,
+              "type": "string"
+            },
+            "owner": {
+              "maxLength": 10000,
+              "type": "string"
+            }
+          },
+          "required": [
+            "owner",
+            "maintenance_hours_month",
+            "on_call",
+            "fallback",
+            "alerts"
+          ],
+          "type": "object"
+        },
+        "raw_measurement_refs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "required_capacity_profile_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "required_security_profile_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "resource_nodes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "owner": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "provider": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "quantity": {
+                "maxLength": 256,
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                "type": "string"
+              },
+              "region": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "role": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "service": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "size": {
+                "maxLength": 10000,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "provider",
+              "service",
+              "region",
+              "size",
+              "quantity",
+              "owner",
+              "role"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "subject_revision": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "trust_boundaries": {
+          "items": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "current",
+            "optimized",
+            "managed",
+            "hybrid"
+          ]
+        }
+      },
+      "required": [
+        "subject_revision",
+        "type",
+        "demand_case",
+        "resource_nodes",
+        "connection_edges",
+        "trust_boundaries",
+        "failure_domains",
+        "constraint_requirements",
+        "action_groups",
+        "input_cost_snapshot_refs",
+        "raw_measurement_refs",
+        "required_capacity_profile_digest",
+        "required_security_profile_digest",
+        "capacity_inputs",
+        "operational_model",
+        "implementation_steps",
+        "migration_rollback"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "source_commit": {
+          "pattern": "^(?:[a-f0-9]{40}|UNRELEASED)$",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 10000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "source_commit"
+      ],
+      "type": "object"
+    },
+    "project_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "client_id",
+    "project_id",
+    "created_at",
+    "producer",
+    "payload"
+  ],
+  "title": "Scenario",
+  "type": "object"
+}

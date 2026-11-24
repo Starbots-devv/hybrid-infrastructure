@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "starbots-hybrid-infrastructure"
+version = "0.1.0a0"
+description = "Offline comparison of infrastructure designs that produces a cost and decision dossier."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+authors = [{ name = "Starbots" }]
+dependencies = ["jsonschema==4.26.0"]
+
+[project.optional-dependencies]
+simulation = ["cryptography==50.0.2"]
+
+[project.urls]
+Homepage = "https://starbots.dev"
+Repository = "https://github.com/Starbots-devv/hybrid-infrastructure"
+
+[project.scripts]
+sb-hybrid = "starbots_hybrid.cli:main"
+sb-aws-sim = "starbots_hybrid.aws_sim.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+starbots_hybrid = ["data/**/*.json", "data/**/*.md", "data/**/*.svg"]

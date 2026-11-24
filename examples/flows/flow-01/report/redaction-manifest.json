@@ -1,0 +1,22 @@
+{
+  "limitations": [
+    "Commercial totals remain potentially sensitive; review before sharing.",
+    "No anonymity guarantee; no automatic publication."
+  ],
+  "omitted_categories": [
+    "client and project identifiers",
+    "company and scenario names",
+    "resource names and locations",
+    "input paths and hashes",
+    "free text",
+    "connection and secret references",
+    "implementation details"
+  ],
+  "policy": "summary-allowlist-1",
+  "retained_fields": [
+    "synthetic",
+    "recommendation.status",
+    "economics numeric values and supported currency"
+  ],
+  "version": "1.0.0"
+}

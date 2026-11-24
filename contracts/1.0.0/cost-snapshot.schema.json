@@ -1,0 +1,390 @@
+{
+  "$id": "urn:starbots:contracts:1.0.0:CostSnapshot",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "CostSnapshot"
+    },
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "accounting_basis": {
+          "enum": [
+            "list",
+            "contracted",
+            "billed",
+            "amortized"
+          ]
+        },
+        "completeness": {
+          "enum": [
+            "complete",
+            "incomplete"
+          ]
+        },
+        "currency_registry_version": {
+          "const": "1.0.0"
+        },
+        "exclusions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "material": {
+                "type": "boolean"
+              },
+              "reason": {
+                "maxLength": 10000,
+                "type": "string"
+              }
+            },
+            "required": [
+              "category",
+              "reason",
+              "material"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "fx_snapshot_refs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "lines": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "allocation_id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "assumptions": {
+                "items": {
+                  "maxLength": 10000,
+                  "type": "string"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "currency": {
+                "pattern": "^[A-Z]{3}$",
+                "type": "string"
+              },
+              "evidence_level": {
+                "enum": [
+                  "measured",
+                  "inventory",
+                  "assumption",
+                  "synthetic",
+                  "unknown"
+                ]
+              },
+              "evidence_refs": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "maxLength": 10000,
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "observed_at": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+                "type": "string"
+              },
+              "period": {
+                "enum": [
+                  "monthly",
+                  "hourly",
+                  "one_time"
+                ]
+              },
+              "price_kind": {
+                "enum": [
+                  "list",
+                  "contracted",
+                  "billed",
+                  "amortized"
+                ]
+              },
+              "provider": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "quantity": {
+                "maxLength": 256,
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                "type": "string"
+              },
+              "region": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "resource_id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "service": {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              "sku": {
+                "anyOf": [
+                  {
+                    "maxLength": 10000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "source": {
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "maxLength": 10000,
+                    "type": "string"
+                  },
+                  "uri": {
+                    "maxLength": 10000,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "uri",
+                  "label"
+                ],
+                "type": "object"
+              },
+              "unit": {
+                "enum": [
+                  "month",
+                  "hour",
+                  "GB",
+                  "GiB",
+                  "request",
+                  "million_requests",
+                  "one_time"
+                ]
+              },
+              "unit_rate": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]*[1-9])?$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "valid_until": {
+                "anyOf": [
+                  {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "view": {
+                "enum": [
+                  "both",
+                  "incremental_cash",
+                  "allocated_tco"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "resource_id",
+              "allocation_id",
+              "provider",
+              "service",
+              "sku",
+              "region",
+              "quantity",
+              "unit",
+              "unit_rate",
+              "currency",
+              "period",
+              "price_kind",
+              "view",
+              "source",
+              "observed_at",
+              "valid_until",
+              "assumptions",
+              "evidence_level",
+              "evidence_refs"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "observed_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "type": "string"
+        },
+        "period_definition": {
+          "additionalProperties": false,
+          "properties": {
+            "horizon_months": {
+              "maximum": 36,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "kind": {
+              "enum": [
+                "calendar_month",
+                "fixed_730_hours"
+              ]
+            },
+            "start_month": {
+              "pattern": "^\\d{4}-\\d{2}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "start_month",
+            "horizon_months"
+          ],
+          "type": "object"
+        },
+        "source_id": {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "type": "string"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source_id",
+        "observed_at",
+        "valid_until",
+        "currency_registry_version",
+        "fx_snapshot_refs",
+        "period_definition",
+        "accounting_basis",
+        "lines",
+        "completeness",
+        "exclusions"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "source_commit": {
+          "pattern": "^(?:[a-f0-9]{40}|UNRELEASED)$",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 10000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "source_commit"
+      ],
+      "type": "object"
+    },
+    "project_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "client_id",
+    "project_id",
+    "created_at",
+    "producer",
+    "payload"
+  ],
+  "title": "CostSnapshot",
+  "type": "object"
+}

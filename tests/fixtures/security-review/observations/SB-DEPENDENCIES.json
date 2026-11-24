@@ -1,0 +1,13 @@
+{
+  "control_id": "SB-DEPENDENCIES",
+  "observation": {
+    "coverage": {
+      "executed": false
+    },
+    "errors": [
+      "Required check was not executed"
+    ],
+    "evidence": {},
+    "state": "UNKNOWN"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "artifacts": [
+    {
+      "path": "inputs/bundle.json",
+      "role": "input",
+      "sha256": "3714fbdc5cfcf28de60a5b92f2e1a1c929d9af2860b5e1e0f99d64786afeeed8"
+    },
+    {
+      "path": "inputs/profile.json",
+      "role": "input",
+      "sha256": "80e3e7b1500ac7948e5f7c4e67dabd79e8d7901a80eea9a20ae4016e9f7e8d59"
+    },
+    {
+      "path": "inputs/scenario-current.json",
+      "role": "input",
+      "sha256": "8cec2b1f6a43adcb77bc0978a36fa759fd8871d924275ad0f8c8f54acb15cd70"
+    },
+    {
+      "path": "inputs/prices-current.json",
+      "role": "input",
+      "sha256": "62f2fb8489ae63918bf02aa6d3f369770c4825d780e3d6e42f65291e7125c480"
+    },
+    {
+      "path": "inputs/finops-current.json",
+      "role": "input",
+      "sha256": "033d0f76e28a7c527b1760e8387f257ce53024ce463df7a2d26947cd1604c6c3"
+    },
+    {
+      "path": "inputs/scenario-vm.json",
+      "role": "input",
+      "sha256": "d5c94f6c237a3b11ff7130f0f9397c571d7243bb787347dfe17e49a899b96b46"
+    },
+    {
+      "path": "inputs/prices-vm.json",
+      "role": "input",
+      "sha256": "435da4332af2b3a28b4a65218ff05e72f39b767e9992b5c244f9110c2f68d295"
+    },
+    {
+      "path": "inputs/finops-vm.json",
+      "role": "input",
+      "sha256": "f0212efbaec157b5b3362d8a7f61d6d7b8e6762b7aa52f7d9a9d41af10ca8f90"
+    },
+    {
+      "path": "capacity-current.json",
+      "role": "capacity",
+      "sha256": "3c90cf8d151765a4374351252aef6176395d6a866de662d4db255734d17e9a5b"
+    },
+    {
+      "path": "capacity-vm.json",
+      "role": "capacity",
+      "sha256": "5cc3c6666fd9d9818890483bd11117278f191f30d59ae47ddf651e43f4f04300"
+    },
+    {
+      "path": "security-control-profile.json",
+      "role": "security-control-profile",
+      "sha256": "8be5a17844b6eb4677d38724bcdcf85602521c91402acc1c73db7e044c0bcbdd"
+    }
+  ],
+  "client_id": "synthetic-stay-managed",
+  "project_id": "synthetic-evaluation",
+  "revision": "1",
+  "subject_id": "proposal-0907fc2fd4cc98f250791b78d75c0980"
+}

@@ -1,0 +1,96 @@
+{
+  "client_id": "synthetic-northstar-parts",
+  "created_at": "2026-10-17T00:00:00Z",
+  "id": "subject-proposal-0d7e9663c3e75d3c135703396e1f277e",
+  "kind": "SubjectRef",
+  "payload": {
+    "artifacts": [
+      {
+        "path": "inputs/bundle.json",
+        "role": "input",
+        "sha256": "86a3152c2b5df68ebd179c88a47ea0cbac1262041507bb5c765a35d2c9bc349e"
+      },
+      {
+        "path": "inputs/profile.json",
+        "role": "input",
+        "sha256": "683b7a55276f3d565e6e57780ed975cd7cd3b1f48cd107eece6f2f355a3746e1"
+      },
+      {
+        "path": "inputs/scenario-current.json",
+        "role": "input",
+        "sha256": "d5115e3f1e1a67d41ba4484f59f1f02418f7fbf820034bbae323217ca23ca4ee"
+      },
+      {
+        "path": "inputs/prices-current.json",
+        "role": "input",
+        "sha256": "823b20d09d751060ac6d8d6fc72fbeae9e9a7184b8f1c0f0d9b05d850fd63216"
+      },
+      {
+        "path": "inputs/finops-current.json",
+        "role": "input",
+        "sha256": "3071b30a0ccac3bfc1c6a68df0df73e4338f4dae0fc02cc5f1d43f2e0a2546d0"
+      },
+      {
+        "path": "inputs/scenario-hybrid.json",
+        "role": "input",
+        "sha256": "ef3fb9f1fd3984f82d81eb24cfd07c03f25175dc162033bb5cc420c22129e5af"
+      },
+      {
+        "path": "inputs/prices-hybrid.json",
+        "role": "input",
+        "sha256": "738ace94c25738840884e6ebdca1ae44e0d7c6657af8879bb329e5728cddfdfa"
+      },
+      {
+        "path": "inputs/finops-hybrid.json",
+        "role": "input",
+        "sha256": "999d7f83e809ea23319cd655285955355f9c05a062848b1751b77aa5b30be5c4"
+      },
+      {
+        "path": "inputs/scenario-local-only.json",
+        "role": "input",
+        "sha256": "44434ad823ecd65a04baaf3d1c2627a5dae10743e4a48206dba676fbada53617"
+      },
+      {
+        "path": "inputs/prices-local-only.json",
+        "role": "input",
+        "sha256": "38eddb63969c56825ea09d8be6f9629b5882902ee6d2ffce24fb0b9f35ed9358"
+      },
+      {
+        "path": "inputs/finops-local-only.json",
+        "role": "input",
+        "sha256": "e2281c97007efcca23d07932bfd20a3c18141ebed0734c0beea54ad0a398f487"
+      },
+      {
+        "path": "capacity-current.json",
+        "role": "capacity",
+        "sha256": "0b1eba542c4b46156ccf7ff43cfe1b7fed4274a81325882394562bff692f01b8"
+      },
+      {
+        "path": "capacity-hybrid.json",
+        "role": "capacity",
+        "sha256": "d8c495e8effc4bd054d82bd5a089849a86f72037fe2ebb447470adb9fe4a6067"
+      },
+      {
+        "path": "capacity-local-only.json",
+        "role": "capacity",
+        "sha256": "034ceaf5df2f3aa44971bad7463a883c0dc3663973224af4d5aa3f1e0136d17f"
+      },
+      {
+        "path": "security-control-profile.json",
+        "role": "security-control-profile",
+        "sha256": "8be5a17844b6eb4677d38724bcdcf85602521c91402acc1c73db7e044c0bcbdd"
+      }
+    ],
+    "manifest_path": "subject-manifest.json",
+    "manifest_sha256": "b8a6cc05b077978cbbaabcf6a065702c6c13f7a8f73e0cef8cac8cfe6ad900f8",
+    "revision": "1",
+    "subject_id": "proposal-0d7e9663c3e75d3c135703396e1f277e"
+  },
+  "producer": {
+    "name": "starbots_hybrid",
+    "source_commit": "UNRELEASED",
+    "version": "0.1.0a0"
+  },
+  "project_id": "synthetic-evaluation",
+  "schema_version": "1.0.0"
+}

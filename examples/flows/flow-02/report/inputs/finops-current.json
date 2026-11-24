@@ -1,0 +1,14 @@
+{
+  "client_id": "synthetic-hidden-costs",
+  "currency": "USD",
+  "format": "starbots-finops-1",
+  "line_rules": [],
+  "observed_at": "2026-10-17T00:00:00Z",
+  "project_id": "synthetic-evaluation",
+  "promotions": [],
+  "scenario_id": "current",
+  "source_uri": "synthetic://flows/synthetic-hidden-costs/current/finops",
+  "start_month": "2026-10",
+  "tax_status": "pre_tax_unknown",
+  "valid_until": "2026-11-01T00:00:00Z"
+}
